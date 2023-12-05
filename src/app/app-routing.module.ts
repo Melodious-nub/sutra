@@ -4,6 +4,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
     { path:'', component: LandingComponent},
@@ -12,12 +13,12 @@ const routes: Routes = [
     // { path:'forgot-password', component: ForgetPasswordComponent},
     { path: '',   redirectTo: '/', pathMatch: 'full' },
     // Lazzy Loading Route 1
-    // {
-    //   path: 'admin',
-    //   canActivate: [AuthGuard],
-    //   loadChildren: () =>
-    //   import('./admin/admin.module').then((m) => m.AdminModule),
-    // },
+    {
+      path: 'admin',
+      canActivate: [AuthGuard],
+      loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+    },
   
     // wildCard for notfound
     { path: '**', component: NotFoundComponent},

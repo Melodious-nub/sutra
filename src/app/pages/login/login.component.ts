@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
           console.log(res,'login');
           
           // Navigate to another page on success
-          this.router.navigate(['/dashboard']); // Update with your success route
+          this.router.navigate(['admin']); // Update with your success route
         } else {
           this.errorMessage = 'Invalid credentials';
         }
