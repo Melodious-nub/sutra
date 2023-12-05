@@ -10,6 +10,7 @@ const routes: Routes = [
     { path:'login', component: LoginComponent},
     { path:'signup', component: SignupComponent},
     // { path:'forgot-password', component: ForgetPasswordComponent},
+    { path: '',   redirectTo: '/', pathMatch: 'full' },
     // Lazzy Loading Route 1
     // {
     //   path: 'admin',
