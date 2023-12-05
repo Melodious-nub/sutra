@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="mb-0">Login</h4>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="onLogin()">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" [(ngModel)]="email" name="email" placeholder="Enter email" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Password" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <p class="text-danger mt-2" *ngIf="errorMessage">{{ errorMessage }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
