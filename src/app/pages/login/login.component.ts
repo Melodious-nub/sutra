@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
     this.auth.login(loginData).subscribe({
       next: (res) => {
         if (res.success && res.statusCode === 200) {
+          console.log(res,'login');
+          
           // Navigate to another page on success
           this.router.navigate(['/dashboard']); // Update with your success route
         } else {
