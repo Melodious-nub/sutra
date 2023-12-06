@@ -40,7 +40,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatStepperModule
+    MatStepperModule,
   ],
   providers: [
     provideHttpClient(withFetch()),

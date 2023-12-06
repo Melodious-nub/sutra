@@ -3,7 +3,7 @@
     <div class="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-                <a class="navbar-brand ms-3 nav-title" href="#">SUTRA</a>
+                <a class="navbar-brand ms-3 nav-title" href="/">SUTRA</a>
             </div>
         </nav>
     </div>
@@ -32,58 +32,104 @@
                         <!-- Full Name -->
                         <mat-form-field>
                           <mat-label>Full Name</mat-label>
-                          <input matInput placeholder="Type your full name" formControlName="fullName" required>
+                          <input matInput placeholder="Type your full name..." formControlName="fullName">
                         </mat-form-field>
 
                         <!-- Email -->
                         <mat-form-field>
                             <mat-label>Email</mat-label>
-                            <input matInput placeholder="Type your email" formControlName="email" required>
+                            <input matInput placeholder="Type your email..." formControlName="email">
                         </mat-form-field>
 
                         <!-- Designation -->
                         <mat-form-field>
                             <mat-label>Designation</mat-label>
-                            <input matInput placeholder="Type your designation" formControlName="designation" required>
+                            <input matInput placeholder="Type your designation..." formControlName="designation">
                         </mat-form-field>
 
-                        <!-- Designation -->
-                        <mat-form-field>
-                            <mat-label>Company id card</mat-label>
-                            <input matInput placeholder="Type your designation" formControlName="designation" required>
-                        </mat-form-field>
+                        <!-- Company id card -->
+                        <div class="mb-3">
+                            <label for="companypicture" class="upload-btn"><i class="fa-solid fa-paperclip me-2" style="rotate: 135deg;"></i>Choose company id card</label>
+                            <input type="file" id="companypicture" accept=".jpg, .png, .gif, .jpeg" (change)="onSelect($event)" style="display: none;" required/>
+                            <span class="ms-2 file-details">{{companyIdName}}</span>
+                            <button class="btn btn-sm" style="background: transparent; border: none;" *ngIf="(removebtnCompanyId)" type="button" (click)="removeCompanyId()">
+                                <i class="fa-regular fa-trash-can" style="color: #90278e;"></i>
+                            </button>
+                        </div>
 
+                        <!-- password Feild -->
                         <div>
-                          <p>Go to a different step to see the error state</p>
+                            <mat-form-field>
+                                <mat-label>Password</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'"  type="password" formControlName="password" id="password">
+                                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <!-- <mat-error *ngIf="password.errors?.['pattern']">Contain number, uppercase,lowercase letter, and at least 6 characters</mat-error> -->
+                            </mat-form-field>
+                        </div>
+
+
+                        <!-- Confirm password Feild -->
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Re-enter password</mat-label>
+                                <input matInput [type]="hideC ? 'password' : 'text'" type="password" formControlName="confirmPassword" id="confirmPassword">
+                                <button type="button" mat-icon-button matSuffix (click)="hideC = !hideC" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideC">
+                                  <mat-icon>{{hideC ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="firstFormGroup.errors?.['passwordMismatchError'] && firstFormGroup.get('confirmPassword')?.touched">Passwords do not match</mat-error>
+                            </mat-form-field>
+                        </div>
+                        
+                        <div>
                           <button mat-button matStepperNext>Next</button>
                         </div>
                       </form>
                     </mat-step>
+
+
                     <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
                       <form [formGroup]="secondFormGroup">
                         <ng-template matStepLabel>Fill out your address</ng-template>
                         <mat-form-field>
-                          <mat-label>Address</mat-label>
-                          <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl" required>
+                          <mat-label>Company name</mat-label>
+                          <input matInput placeholder="Type company name..." formControlName="companyName">
                         </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Country</mat-label>
+                            <input matInput placeholder="Type country name..." formControlName="country">
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Company address</mat-label>
+                            <input matInput placeholder="Type country name..." formControlName="companyAddress">
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Company email</mat-label>
+                            <input matInput placeholder="Type your email..." formControlName="companyEmail">
+                        </mat-form-field>
+
+                        <!-- Company id card -->
+                        <div class="mb-3">
+                            <label for="companyLic" class="upload-btn"><i class="fa-solid fa-paperclip me-2" style="rotate: 135deg;"></i>Choose company License</label>
+                            <input type="file" id="companyLic" accept=".jpg, .png, .gif, .jpeg" (change)="onSelectLicense($event)" style="display: none;" required/>
+                            <span class="ms-2 file-details">{{companyLicenseName}}</span>
+                            <button class="btn btn-sm" style="background: transparent; border: none;" *ngIf="(removebtnCompanyLicense)" type="button" (click)="removeCompanyLicense()">
+                                <i class="fa-regular fa-trash-can" style="color: #90278e;"></i>
+                            </button>
+                        </div>
+
                         <div>
-                          <p>Go to a different step to see the error state</p>
                           <button mat-button matStepperPrevious>Back</button>
-                          <button mat-button matStepperNext>Next</button>
+                          <button mat-button (click)="stepper.reset()" (click)="resetBtnClicked()">Reset</button>
+                          <button mat-button class="float-end" [disabled]="firstFormGroup.invalid || secondFormGroup.invalid || companyIdCardFile.length == 0 || companyLicense.length == 0" (click)="onRegSubmit()">Sign up</button>
                         </div>
                       </form>
                     </mat-step>
-                    <mat-step>
-                      <ng-template matStepLabel>Done</ng-template>
-                      <p>You are now done.</p>
-                      <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button (click)="stepper.reset()">Reset</button>
-                      </div>
-                    </mat-step>
                   </mat-stepper>
-                  
-
             </div>
             <!-- last col-6 end -->
         </div>
