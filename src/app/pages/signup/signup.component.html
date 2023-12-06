@@ -1,1 +1,130 @@
-<p>signup works!</p>
+<div class="body" style="height: 100vh;">
+    <!-- Navbar -->
+    <div class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand ms-3 nav-title" href="#">SUTRA</a>
+            </div>
+        </nav>
+    </div>
+    <!-- nav end -->
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 my-auto">
+                <div class="text-center mb-4">
+                    <p class="text-signup">Already have an account ?</p>
+                    <p class="text-sub-s">Login to SUTRA and make your <br> supplychain management easier</p>
+                    <button routerLink="../login" mat-flat-button class="mb-4">Login</button>
+                </div>
+            </div>
+            <!-- col-6 end -->
+
+            <div class="col-md-6 mt-4">
+                <div class="text-center">
+                    <p class="text-sub-l"><b class="text-login">Sign up for new account</b></p>
+                </div>
+                <!-- Full Form Hander Field -->
+                <form id="registerForm" #registerForm="ngForm" (submit)="onRegSubmit(registerForm)">
+
+                    <!-- hidden prefix data field -->
+                    <!-- companyType Feild -->
+                    <div class="form-group">
+                        <select hidden [ngModel]="dropValue" name="ccmpanyType" class="form-control f-info" id="exampleFormControlSelect1">
+                        <option [value]="dropValue">Commercial</option>
+                        </select>
+                    </div>
+
+                    <!-- firstName Feild -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label>First name</mat-label>
+                                <input matInput required ngModel minlength="2" type="text" name="firstName" id="firstName" #firstName="ngModel">
+                                <mat-error *ngIf="firstName.errors?.['minlength']">User name should be minimum {{firstName.errors?.['minlength'].requiredLength}} characters</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <!-- Last Name field -->
+                        <div class="col-md-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Last name</mat-label>
+                                <input matInput required ngModel minlength="2" type="text" name="lastName" id="lastName" #lastName="ngModel">
+                                <mat-error *ngIf="lastName.errors?.['minlength']">User name should be minimum {{firstName.errors?.['minlength'].requiredLength}} characters</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <!-- emailAddress Feild -->
+                        <div class="col-md-12">
+                            <mat-form-field appearance="outline">
+                                <mat-label>E-mail address</mat-label>
+                                <input matInput required ngModel type="emailAddress" name="emailAddress" id="emailAddress" #emailAddress="ngModel" pattern="^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$">
+                                <mat-error *ngIf="emailAddress.errors?.['pattern']">Email address pattern is not correct</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <!-- companyName Feild -->
+                        <div class="col-md-12">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Company name</mat-label>
+                                <input matInput required ngModel type="text" name="companyName" id="companyName" #companyName="ngModel">
+                                <mat-error *ngIf="companyName.errors?.['required']">Company name is required</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <!-- designation Feild -->
+                        <div class="col-md-12">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Designation</mat-label>
+                                <input matInput required ngModel type="text" name="designation" id="designation" #designation="ngModel">
+                                <mat-error *ngIf="designation.errors?.['required']">Designation is required</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <!-- password Feild -->
+                        <div class="col-md-12">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" required ngModel #password="ngModel" [(ngModel)]="model.password" type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}">
+                                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="password.errors?.['pattern']">Contain number, uppercase,lowercase letter, and at least 6 characters</mat-error>
+                            </mat-form-field>
+                        </div>
+
+
+                        <!-- Confirm password Feild -->
+                        <div class="col-md-12">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Re-enter password</mat-label>
+                                <input matInput [type]="hideC ? 'password' : 'text'" required ngModel #reEnterPassword="ngModel" [(ngModel)]="model.reEnterPassword" type="password" ngValidateEqual="password" name="reEnterPassword" id="reEnterPassword">
+                                <button type="button" mat-icon-button matSuffix (click)="hideC = !hideC" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideC">
+                                  <mat-icon>{{hideC ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="reEnterPassword.hasError('notEqual') &&
+                                password.valid">Passwords do not match</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <!-- For viewing output -->
+
+                        <!-- <p>{{registerForm.value | json}}</p> -->
+                        <div class="float-start ms-1 mb-2">
+                            <mat-checkbox class="example-margin">I accept the <a class="term-con" data-bs-toggle="modal" data-bs-target="#staticBackdrop">terms and conditions</a></mat-checkbox>
+                        </div>
+
+                        <div class="center">
+                            <button mat-raised-button color="accent" type="submit" name="signup" id="signup" value="register" [disabled]="!registerForm.valid">Create account</button>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                </form>
+            </div>
+            <!-- last col-6 end -->
+        </div>
+        <!-- row end -->
+    </div>
+    <!-- container end -->
+</div>
+<!-- body end -->

@@ -1,0 +1,493 @@
+/* .body {
+    background: url("../../../assets/images/img/bg-img.svg") fixed no-repeat bottom right;
+    background-size: 650px 300px;
+} */
+
+/* mat-label {
+    position: relative;
+} */
+
+mat-form-field {
+    width: 90%;
+    font-size: 12px;
+}
+
+/* .material-icons-name {
+    font-size: 18px;
+}
+
+.mat-raised-button {
+    width: 90%;
+    background-color: #92428e;
+}
+
+.mat-flat-button {
+    width: 25%;
+    background-color: #92428e;
+    color: #FFFFFF;
+} */
+
+.example-margin {
+    margin: 0 12px;
+}
+
+
+/* mat-label normal state style */
+
+/* ::ng-deep .mat-form-field-label {
+    color: rgba(0, 0, 0, .7)!important;
+    padding-left: 5px !important;
+} */
+
+
+/* mat-label focused style invalid and valid state */
+
+/* ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: black!important;
+    font-size: 12px;
+    line-height: 14px;
+    transform: translateY(-1.6em) scale(.66) !important;
+} */
+
+/* ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: black !important;
+} */
+
+
+/* mat-input carent color */
+
+/* ::ng-deep .mat-input-element {
+    caret-color: black!important;
+    padding-left: 5px !important;
+} */
+
+
+/* for checkbox material */
+
+
+/* // overwrite the checkbox background */
+
+/* ::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+.mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #92428e !important;
+} */
+
+
+/* // overwrite the ripple overlay on hover and click */
+
+/* ::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+    background-color: black !important;
+} */
+
+.text-login {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    /* line-height: 48px; */
+    /* identical to box height */
+    color: #000000;
+}
+
+.text-sub-l {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+}
+
+.text-signup {
+    font-weight: 600;
+    font-size: 28px;
+    color: #000000;
+}
+
+.text-sub-s {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+}
+
+.navbar {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+    background-color: #f5f5f8;
+    height: 55px;
+}
+
+
+/* .navbar-brand {
+    position: relative;
+    width: 83px;
+    height: 38px;
+    font-size: 25px;
+    line-height: 38px; */
+
+
+/* identical to box height */
+
+
+/* color: #93117D;
+} */
+
+
+/* .navbar-brand:hover {
+    color: #93117D;
+}
+
+.nav-item a {
+    margin-left: 20px;
+    color: #93117D;
+    position: relative;
+    font-size: 16px;
+}
+
+.nav-item a:hover {
+    color: black;
+} */
+
+.f-info {
+    position: relative;
+    background: #FFFFFF;
+    box-shadow: inset -4px -4px 3px #FFFFFF, inset 4px 4px 7px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    width: 90%;
+    height: 50px;
+    /* for center input box */
+    margin: auto;
+    display: block;
+}
+
+.f-info {
+    max-width: 550px;
+}
+
+.b-info {
+    box-shadow: -5px -5px 10px #FFFFFF, 5px 5px 10px rgba(151, 149, 169, 0.5);
+    border-radius: 35px;
+    padding: 10px 40px;
+}
+
+
+/* Css Style classes for hovering from canvas mix-link hover styles */
+
+
+/* Links */
+
+.link {
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #93117D;
+    font-size: 15px;
+    font-family: 'Poppins';
+}
+
+.link::before,
+.link::after {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+}
+
+.link::before {
+    content: '';
+    /* show by default */
+}
+
+
+/* Link 6 */
+
+.link-6 {
+    font-size: 15px;
+}
+
+.link-6::before {
+    transform-origin: 50% 100%;
+    transition: clip-path 0.3s, transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+    clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%, 100% 100%, 100% 0%);
+}
+
+.link-6:hover::before {
+    transform: translate3d(0, 2px, 0) scale3d(1.08, 3, 1);
+    clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 0, 50% 0, 50% 100%, 50% 100%, 0 100%, 100% 100%, 100% 0%);
+}
+
+.link-6 span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+}
+
+.link-6:hover span {
+    transform: translate3d(0, -2px, 0);
+}
+
+
+/* Link 3 */
+
+.link-3::before {
+    transform-origin: 100% 50%;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+}
+
+.link-3:hover::before {
+    transform-origin: 0% 50%;
+    transform: scale3d(1, 2, 1);
+    transition-timing-function: cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.link-3::after {
+    content: '';
+    top: calc(100% + 4px);
+    transform-origin: 100% 50%;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.4s 0.1s cubic-bezier(0.2, 1, 0.8, 1);
+}
+
+.link-3:hover::after {
+    transform-origin: 0% 50%;
+    transform: scale3d(1, 1, 1);
+    transition-timing-function: cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+
+/* for tabs */
+
+.nav-modi {
+    background: #FFFFFF;
+    box-shadow: inset -6px -6px 4px #FFFFFF, inset 6px 6px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 39.5px;
+    padding: 2px 3px;
+    width: auto;
+}
+
+.nav-tabs .nav-link.active {
+    color: #FFFFFF;
+    background: #93117D;
+    box-shadow: -5px -5px 10px #FFFFFF, 5px 5px 10px rgba(151, 149, 169, 0.5);
+    border-radius: 39.5px;
+    padding: 9px 25px;
+}
+
+.nav-tabs .nav-link {
+    margin-bottom: -1px;
+    background: 0 0;
+    border: 1px solid transparent;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #93117D;
+    text-decoration: none;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.nav-title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    /* Sumations gradient */
+    background: #90278E;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+/* for all material input */
+
+
+/* mat-icon-stepper selected color change  */
+
+
+/* ::ng-deep .mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit {
+    background-color: red!important;
+} */
+
+
+/* input outline color */
+
+/* ::ng-deep .mat-form-field .mat-form-field-label {
+    text-transform: capitalize !important;
+} */
+
+
+/* ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #93117d !important;
+    opacity: 1!important;
+} */
+
+
+/* mat-input focused color */
+
+
+/* ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #93117d !important;
+} */
+
+
+/* ::ng-deep .mat-form-field-underline,
+ ::ng-deep .mat-form-field-ripple {
+    background-color: white!important;
+    opacity: 0;
+} */
+
+
+/* mat-input error outline color */
+
+
+/* ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    opacity: 0.8!important;
+} */
+
+
+/* mat-input carent color */
+
+
+/* ::ng-deep .mat-input-element {
+    caret-color: red!important;
+    padding-left: 10px !important;
+} */
+
+
+/* mat-input error carent color */
+
+
+/* ::ng-deep .mat-form-field-invalid .mat-input-element,
+.mat-warn .mat-input-element {
+    caret-color: red!important;
+} */
+
+
+/* mat-label normal state style */
+
+
+/* ::ng-deep .mat-form-field-label {
+    color: rgba(0, 0, 0, .6)!important;
+    padding-left: 10px !important;
+} */
+
+
+/* mat-label focused style */
+
+
+/* ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: #93117d !important;
+    padding-left: 30px !important;
+}
+
+::ng-deep .mat-form-field.mat-focused.mat-form-field-invalid .mat-form-field-label {
+    color: red !important;
+    padding-left: 30px !important;
+} */
+
+
+/* mat-label error style */
+/* 
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: red!important;
+} */
+
+
+/* mat level border  */
+
+
+/* 1st solution - causes weird thing at the left side of input */
+
+
+/* ::ng-deep .mat-form-field-outline-start {
+    border-radius: 30px 0 0 30px !important;
+    min-width: 30px !important;
+} */
+
+
+/* ::ng-deep .mat-form-field-outline-end {
+    border-radius: 0 30px 30px 0 !important;
+} */
+
+
+/* Radio Container  and checkbox*/
+
+
+/* ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #93117d !important;
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #93117d !important;
+}
+
+.radio-container input:checked~.checkmark {
+    background-color: #e5e5e5;
+} */
+
+
+/* Typical Device Breakpoints */
+
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+    .body {
+        background: none;
+    }
+    .text-signup {
+        font-size: 18px;
+    }
+    .text-sub-s {
+        display: none;
+    }
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+    .body {
+        background: none;
+    }
+    .text-signup {
+        font-size: 20px;
+    }
+    .text-sub-s {
+        display: none;
+    }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .body {
+        background-size: 550px 250px;
+    }
+    .text-signup {
+        font-size: 25px;
+    }
+}
+
+
+/* Big screen devices (889px and above) */
+
+@media only screen and (min-width: 992px) and ((max-width: 1200px)) {
+    .body {
+        background-size: 580px 280px;
+    }
+}

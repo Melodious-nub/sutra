@@ -1,0 +1,238 @@
+.body {
+    /* background: url("../../../assets/images/img/bg-2.svg") fixed no-repeat bottom left; */
+    background-size: 650px 300px;
+}
+
+.zmdi.zmdi-alert-circle-o {
+    color: red;
+}
+
+.error-icons {
+    color: red;
+}
+
+.alert-modi {
+    color: red;
+}
+
+.navbar {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+    background-color: #f5f5f8;
+    height: 55px;
+}
+
+.nav-title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    background: #90278E;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.f-info {
+    position: relative;
+    background: #FFFFFF;
+    box-shadow: inset -4px -4px 3px #FFFFFF, inset 4px 4px 7px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    /* width: 80%; */
+    height: 50px;
+    /* for center input box */
+    margin: auto;
+    display: block;
+}
+
+.f-info {
+    max-width: 550px;
+}
+
+.width {
+    max-width: 600px;
+}
+
+.b-info {
+    box-shadow: -5px -5px 10px #FFFFFF, 5px 5px 10px rgba(151, 149, 169, 0.5);
+    border-radius: 35px;
+    padding: 10px 40px;
+}
+
+.text-signup {
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+}
+
+.text-sub-s {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+}
+
+.text-login {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    /* line-height: 48px; */
+    /* identical to box height */
+    color: #000000;
+}
+
+.text-sub-l {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+}
+
+.mat-flat-button {
+    width: 20%;
+    background-color: #92428e;
+    color: #FFFFFF;
+}
+
+mat-form-field {
+    width: 100%;
+    font-size: 11px;
+}
+
+.mat-raised-button {
+    width: 100%;
+    background-color: #92428e;
+}
+
+a.term-con {
+    color: #92428e !important;
+}
+
+
+/* mat-label normal state style */
+
+/* ::ng-deep .mat-form-field .mat-form-field-label {
+    text-transform: none !important;
+}
+
+::ng-deep .mat-form-field-label {
+    color: rgba(0, 0, 0, .7)!important;
+    padding-left: 5px !important;
+} */
+
+
+/* mat-label focused style invalid and valid state */
+
+/* ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: black!important;
+} */
+
+/* ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: black !important;
+} */
+
+
+/* mat-input error outline color */
+
+/* ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    color: rgba(0, 0, 0, .7)!important;
+    opacity: 0.8!important;
+    caret-color: rgba(0, 0, 0, .7)!important;
+} */
+
+
+/* mat-input carent color */
+
+/* ::ng-deep .mat-input-element {
+    caret-color: black!important;
+    padding-left: 5px !important;
+} */
+
+
+/* for checkbox material */
+
+
+/* // overwrite the checkbox background */
+
+/* ::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+.mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #92428e !important;
+} */
+
+
+/* // overwrite the ripple overlay on hover and click */
+
+/* ::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+    background-color: black !important;
+} */
+
+
+/* Typical Device Breakpoints */
+
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+    .body {
+        background: none;
+    }
+    .text-signup {
+        font-size: 18px;
+    }
+    .text-sub-s {
+        display: none;
+    }
+    .text-login {
+        font-size: 18px;
+    }
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+    .body {
+        background: none;
+    }
+    .text-signup {
+        font-size: 20px;
+    }
+    .text-sub-s {
+        display: none;
+    }
+    .text-login {
+        font-size: 20px;
+    }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .body {
+        background: none;
+    }
+    .text-signup {
+        font-size: 22px;
+    }
+    .text-login {
+        font-size: 22px;
+    }
+}
+
+
+/* Big screen devices (889px and above) */
+
+@media only screen and (min-width: 992px) and ((max-width: 1200px)) {
+    .body {
+        background-size: 520px 250px;
+    }
+}

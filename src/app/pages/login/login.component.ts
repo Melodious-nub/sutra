@@ -9,31 +9,29 @@ import { NgForm } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit {
-  email: string = '';
-  password: string = '';
-  errorMessage: string = '';
+export class LoginComponent implements OnInit {  
+  hide = true;
 
   constructor(private auth: AuthService, private router: Router, private api: DataService) { }
 
   ngOnInit(): void {
   }
 
-  onLogin():void {
-    const loginData = { email: this.email, password: this.password };
+  onLogin(loginForm: NgForm):void {
+    const loginData = { email: loginForm.value.email, password: loginForm.value.password };
     this.auth.login(loginData).subscribe({
-      next: (res) => {
+      next: (res: any) => {
         if (res.success && res.statusCode === 200) {
           console.log(res,'login');
           
           // Navigate to another page on success
           this.router.navigate(['admin']); // Update with your success route
         } else {
-          this.errorMessage = 'Invalid credentials';
+          // this.errorMessage = 'Invalid credentials';
         }
       },
-      error: (error) => {
-        this.errorMessage = 'Login failed';
+      error: (error: any) => {
+        // this.errorMessage = 'Login failed';
         // Handle the error (e.g., display error message)
       }
     });
