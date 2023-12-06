@@ -1,23 +1,30 @@
 import { Component } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css'
+  styleUrl: './signup.component.css',
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: {showError: true},
+    },
+  ],
 })
 export class SignupComponent {
 
-  hide = true;
-  hideC = true;
-  isChecked!: boolean;
-  // for phone number input
-  model: any = {};
-  dropValue = 1;
+  firstFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
+  secondFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
 
-  constructor(private api: DataService, private router: Router) { }
+  constructor(private api: DataService, private router: Router, private _formBuilder: FormBuilder) { }
 
   // Registation Section will update here
   onRegSubmit(registerForm: NgForm) {
