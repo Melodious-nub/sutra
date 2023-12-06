@@ -10,7 +10,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { HttpClientInterceptor } from './http-client.interceptor';
 
 @NgModule({
@@ -31,6 +31,7 @@ import { HttpClientInterceptor } from './http-client.interceptor';
     HttpClientModule,
   ],
   providers: [
+    provideHttpClient(withFetch()),
     provideClientHydration(),
     HttpClient,
     { provide: HTTP_INTERCEPTORS,  useClass: HttpClientInterceptor, multi: true },
