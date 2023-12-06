@@ -18,11 +18,14 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 export class SignupComponent {
 
   firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
+    fullName: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    designation: ['', Validators.required],
   });
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
+  companyIdCardFile: File | null = null;
 
   constructor(private api: DataService, private router: Router, private _formBuilder: FormBuilder) { }
 

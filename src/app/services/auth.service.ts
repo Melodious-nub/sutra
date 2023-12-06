@@ -33,7 +33,7 @@ export class AuthService {
     return this.api.login(data).pipe(
       map(res => {
         if (res.success === true && res.statusCode === 200) {
-          this.token = res.data;
+          this.token = res.data.token;
           this.setToken(this.token);
           return res;
         } else {

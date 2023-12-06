@@ -29,10 +29,30 @@
                     <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
                       <form [formGroup]="firstFormGroup">
                         <ng-template matStepLabel>Fill out your name</ng-template>
+                        <!-- Full Name -->
                         <mat-form-field>
-                          <mat-label>Name</mat-label>
-                          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+                          <mat-label>Full Name</mat-label>
+                          <input matInput placeholder="Type your full name" formControlName="fullName" required>
                         </mat-form-field>
+
+                        <!-- Email -->
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="Type your email" formControlName="email" required>
+                        </mat-form-field>
+
+                        <!-- Designation -->
+                        <mat-form-field>
+                            <mat-label>Designation</mat-label>
+                            <input matInput placeholder="Type your designation" formControlName="designation" required>
+                        </mat-form-field>
+
+                        <!-- Designation -->
+                        <mat-form-field>
+                            <mat-label>Company id card</mat-label>
+                            <input matInput placeholder="Type your designation" formControlName="designation" required>
+                        </mat-form-field>
+
                         <div>
                           <p>Go to a different step to see the error state</p>
                           <button mat-button matStepperNext>Next</button>
@@ -44,8 +64,7 @@
                         <ng-template matStepLabel>Fill out your address</ng-template>
                         <mat-form-field>
                           <mat-label>Address</mat-label>
-                          <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
-                                 required>
+                          <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl" required>
                         </mat-form-field>
                         <div>
                           <p>Go to a different step to see the error state</p>
