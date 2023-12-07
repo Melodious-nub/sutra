@@ -18,6 +18,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { TermsAndConditionsComponent } from './modals/terms-and-conditions/terms-and-conditions.component'
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     LoginComponent,
     SignupComponent,
     NotFoundComponent,
+    TermsAndConditionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatButtonModule,
     MatCheckboxModule,
     MatStepperModule,
+    MatAutocompleteModule,
+    MatDialogModule,
   ],
   providers: [
     provideHttpClient(withFetch()),

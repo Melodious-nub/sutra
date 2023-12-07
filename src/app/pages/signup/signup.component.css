@@ -1,7 +1,7 @@
-.body {
-    /* background: url("../../../assets/images/img/bg-2.svg") fixed no-repeat bottom left; */
+/* .body {
+    background: url("../../../assets/images/img/bg-2.svg") fixed no-repeat bottom left;
     background-size: 650px 300px;
-}
+} */
 
 .zmdi.zmdi-alert-circle-o {
     color: red;
@@ -13,6 +13,10 @@
 
 .alert-modi {
     color: red;
+}
+
+.bold-text {
+    font-weight: 500;
 }
 
 .navbar {
@@ -112,8 +116,10 @@ mat-form-field {
     background-color: #92428e;
 }
 
-a.term-con {
-    color: #92428e !important;
+.term-con {
+    font-weight: 500;
+    text-decoration: none;
+    /* color: #92428e; */
 }
 
 
