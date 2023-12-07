@@ -9,7 +9,7 @@ import { DataService } from '../../services/data.service';
 })
 export class AccountConfirmationComponent implements OnInit {
 
-  emailConfirmed: boolean = false;
+  emailConfirmed: boolean = true;
   urlParams: any = {};
   link = 'http://localhost:4200/account-confirmation?token=';
 
