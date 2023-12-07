@@ -1,0 +1,25 @@
+<div class="body">
+    <div class="container vh-75">
+        <div class="row justify-content-center h-75 mt-4">
+            <div class="my-auto">
+                <div *ngIf="emailConfirmed">
+                    <div class="text-center">
+                        <h2>Activation Complete</h2>
+                    </div>
+                    <p class="text-center mt-4 p-info">Your account is now ready for use. <br> Go ahed and login to get started with sutra.</p>
+                </div>
+                <div *ngIf="!emailConfirmed">
+                    <div class="text-center">
+                        <h2>Activation Error.</h2>
+                    </div>
+                    <p class="text-center mt-4 p-info">Please try again. <br> Go ahed and login to get started with sutra.</p>
+                </div>
+                <div class="text-center mt-5">
+                    <a type="button" class="link link-6" (click)="navigateLogin()"> <span>Back to Login</span></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- container end -->
+</div>

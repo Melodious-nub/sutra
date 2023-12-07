@@ -21,6 +21,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { TermsAndConditionsComponent } from './modals/terms-and-conditions/terms-and-conditions.component'
 import {MatDialogModule} from '@angular/material/dialog';
+import { AccountConfirmationComponent } from './pages/account-confirmation/account-confirmation.component';
+import { NavbarComponent } from './pages/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     SignupComponent,
     NotFoundComponent,
     TermsAndConditionsComponent,
+    AccountConfirmationComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
