@@ -141,7 +141,7 @@ export class SignupComponent implements OnInit {
         this.secondFormGroup.patchValue({ companyLicenseFile: file });
       } else {
         alert('Only images and PDFs are allowed.');
-        this.clearFile();
+        this.clearFileLicense();
       }
     }
   }
@@ -166,11 +166,15 @@ export class SignupComponent implements OnInit {
       ]
     }
     // console.log(postBody, 'total post');
-    formData.append('CompanyDoc', this.secondFormGroup.controls['companyLicenseFile'].value);
-    formData.append('EmployeeIdDoc', this.secondFormGroup.controls['companyLicenseFile'].value);
+    if (this.companyLicenseFile) {
+      formData.append('CompanyDoc', this.companyLicenseFile);
+    }
+    if (this.companyIdCardFile) {
+      formData.append('EmployeeIdDoc', this.companyIdCardFile);
+    }
     formData.append('RequestData', JSON.stringify(postBody));
 
-    this.api.login(formData).subscribe({
+    this.api.signUp(formData).subscribe({
       next: (res: any) => {
         if (res.success && res.statusCode === 200) {
           this.toastr.success(res.message);
@@ -178,10 +182,12 @@ export class SignupComponent implements OnInit {
           // this.router.navigate(['admin']);
         } else {
           this.toastr.warning(res.message);
+          // console.log(res.message, 'warning');
         }
       },
       error: (error: any) => {
         this.toastr.error(error);
+        // console.log(error, "error");
       }
     });
     }
