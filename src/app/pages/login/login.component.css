@@ -1,15 +1,6 @@
-/* .body {
-    background: url("../../../assets/images/img/bg-img.svg") fixed no-repeat bottom right;
-    background-size: 650px 300px;
-} */
-
-/* mat-label {
-    position: relative;
-} */
-
 mat-form-field {
     width: 90%;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 /* .material-icons-name {
@@ -80,7 +71,6 @@ mat-form-field {
 } */
 
 .text-login {
-    font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
     font-size: 28px;
@@ -90,7 +80,6 @@ mat-form-field {
 }
 
 .text-sub-l {
-    font-family: 'Poppins';
     font-style: normal;
     font-weight: 300;
     font-size: 13px;
@@ -112,46 +101,6 @@ mat-form-field {
     text-align: center;
     color: #000000;
 }
-
-.navbar {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    text-align: center;
-    background-color: #f5f5f8;
-    height: 55px;
-}
-
-
-/* .navbar-brand {
-    position: relative;
-    width: 83px;
-    height: 38px;
-    font-size: 25px;
-    line-height: 38px; */
-
-
-/* identical to box height */
-
-
-/* color: #93117D;
-} */
-
-
-/* .navbar-brand:hover {
-    color: #93117D;
-}
-
-.nav-item a {
-    margin-left: 20px;
-    color: #93117D;
-    position: relative;
-    font-size: 16px;
-}
-
-.nav-item a:hover {
-    color: black;
-} */
 
 .f-info {
     position: relative;
@@ -187,7 +136,6 @@ mat-form-field {
     white-space: nowrap;
     color: #93117D;
     font-size: 15px;
-    font-family: 'Poppins';
 }
 
 .link::before,
@@ -293,19 +241,6 @@ mat-form-field {
     color: #93117D;
     text-decoration: none;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
-}
-
-.nav-title {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 30px;
-    /* Sumations gradient */
-    background: #90278E;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 

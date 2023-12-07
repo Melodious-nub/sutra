@@ -1,0 +1,72 @@
+h2 {
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 70px;
+    /* identical to box height */
+    text-align: center;
+    color: #93117D;
+}
+
+.p-info {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 28px;
+    color: #93117D;
+}
+
+
+/* Css Style classes for hovering from canvas mix-link hover styles */
+
+
+/* Links */
+
+.link {
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #93117D;
+    font-size: 15px;
+}
+
+.link::before,
+.link::after {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+}
+
+.link::before {
+    content: '';
+    /* show by default */
+}
+
+
+/* Link 6 */
+
+.link-6 {
+    font-size: 15px;
+}
+
+.link-6::before {
+    transform-origin: 50% 100%;
+    transition: clip-path 0.3s, transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+    clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%, 100% 100%, 100% 0%);
+}
+
+.link-6:hover::before {
+    transform: translate3d(0, 2px, 0) scale3d(1.08, 3, 1);
+    clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 0, 50% 0, 50% 100%, 50% 100%, 0 100%, 100% 100%, 100% 0%);
+}
+
+.link-6 span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+}
+
+.link-6:hover span {
+    transform: translate3d(0, -2px, 0);
+}

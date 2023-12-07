@@ -15,8 +15,7 @@
                       <div class="mt-3">
                           <mat-form-field appearance="outline">
                               <mat-label>Email</mat-label>
-                              <input matInput required ngModel #email="ngModel" type="text" name="email" id="email" pattern="^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$">
-                              <mat-error *ngIf="((email.invalid && email.touched) || email.dirty) || email.errors?.['pattern']">Email address pattern is not correct</mat-error>
+                              <input matInput required ngModel #email="ngModel" type="text" name="email" id="email">
                           </mat-form-field>
                       </div>
 
