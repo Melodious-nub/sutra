@@ -13,4 +13,8 @@ export class DataService {
     return this.http.post<any>(environment.baseUrl+'/api/v1/Admin', data);
   }
 
+  signUp(data:any) {
+    return this.http.post<any>(environment.baseUrl+'/api/v1/Registration', data);
+  }
+
 }

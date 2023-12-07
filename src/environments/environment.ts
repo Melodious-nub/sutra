@@ -5,5 +5,5 @@
 export const environment = {
     production: false,
     // Other development environment specific variables
-    baseUrl: 'https://devcomboxapi.azurewebsites.net',
+    baseUrl: 'https://devsutraapi.azurewebsites.net',
 };

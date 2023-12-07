@@ -23,6 +23,7 @@ import { TermsAndConditionsComponent } from './modals/terms-and-conditions/terms
 import {MatDialogModule} from '@angular/material/dialog';
 import { AccountConfirmationComponent } from './pages/account-confirmation/account-confirmation.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,15 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
     MatStepperModule,
     MatAutocompleteModule,
     MatDialogModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass: 'toast-top-right',
+      // progressBar: true,
+      // progressAnimation: 'decreasing',
+      preventDuplicates: true,
+      countDuplicates: true,
+      resetTimeoutOnDuplicate: true,
+    }),
   ],
   providers: [
     provideHttpClient(withFetch()),

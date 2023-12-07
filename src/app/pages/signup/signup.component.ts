@@ -7,6 +7,7 @@ import { passwordMatchValidator } from '../../services/passwordMatchValidator';
 import { Observable, map, startWith } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { TermsAndConditionsComponent } from '../../modals/terms-and-conditions/terms-and-conditions.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -59,7 +60,7 @@ export class SignupComponent implements OnInit {
   ];
   filteredOptions!: Observable<string[]>;
 
-  constructor(private api: DataService, private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog) { }
+  constructor(private api: DataService, private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, private toastr: ToastrService,) { }
 
   ngOnInit() {
     // reactive form group model
@@ -78,7 +79,7 @@ export class SignupComponent implements OnInit {
       companyAddress: ['', Validators.required],
       companyEmail: ['', [Validators.required, Validators.email]],
       companyLicenseFile: [null, Validators.required],
-      acceptTerms: [false, Validators.requiredTrue],
+      termsAndCondition: [false, Validators.requiredTrue],
     });
 
     // for country value autocomplete
@@ -154,21 +155,35 @@ export class SignupComponent implements OnInit {
 
   // Registation Section will update here
   onRegSubmit() {
-    console.log(this.firstFormGroup.controls['fullName'].value, this.secondFormGroup.get('companyEmail')?.value);
-    
-    // this.api.login(registerForm).subscribe({
-    //   next: (res: any) => {
-    //     if (res.success && res.statusCode === 200) {
-    //       console.log(res,'login');
-    //     } else {
-    //       // this.errorMessage = 'Invalid credentials';
-    //     }
-    //   },
-    //   error: (error: any) => {
-    //     // this.errorMessage = 'Login failed';
-    //     // Handle the error (e.g., display error message)
-    //   }
-    // });
+    // for posting registration data model
+    const formData = new FormData();
+    let postBody = {
+      companyName: this.secondFormGroup.controls['companyName'].value, country: this.secondFormGroup.controls['country'].value, companyAddress: this.secondFormGroup.controls['companyAddress'].value, companyEmail: this.secondFormGroup.controls['companyEmail'].value, termsAndCondition: this.secondFormGroup.controls['termsAndCondition'].value, 
+      employees: [
+        {
+          name: this.firstFormGroup.controls['fullName'].value, email: this.firstFormGroup.controls['email'].value, designation: this.firstFormGroup.controls['designation'].value, password: this.firstFormGroup.controls['password'].value, confirmPassword: this.firstFormGroup.controls['confirmPassword'].value
+        },
+      ]
+    }
+    // console.log(postBody, 'total post');
+    formData.append('CompanyDoc', this.secondFormGroup.controls['companyLicenseFile'].value);
+    formData.append('EmployeeIdDoc', this.secondFormGroup.controls['companyLicenseFile'].value);
+    formData.append('RequestData', JSON.stringify(postBody));
+
+    this.api.login(formData).subscribe({
+      next: (res: any) => {
+        if (res.success && res.statusCode === 200) {
+          this.toastr.success(res.message);
+          // Navigate to another page on success
+          // this.router.navigate(['admin']);
+        } else {
+          this.toastr.warning(res.message);
+        }
+      },
+      error: (error: any) => {
+        this.toastr.error(error);
+      }
+    });
     }
 
     // for modal behaviour used angular material modal
