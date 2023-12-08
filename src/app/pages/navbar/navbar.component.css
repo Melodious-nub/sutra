@@ -23,24 +23,24 @@
 .btn-lang:first-child:hover,
  :not(.btn-check)+.btn-lang:hover {
     background-color: transparent !important;
-    border-color: #90278E !important;
+    border-color: #3f51b5 !important;
 }
 
 .btn-moreInfo {
-    background-color: #90278E !important;
-    border-color: #90278E !important;
+    background-color: #3f51b5 !important;
+    border-color: #3f51b5 !important;
 }
 
 a {
-    color: #90278E !important;
+    color: #3f51b5 !important;
 }
 
 a:hover {
-    color: #90278E;
+    color: #3f51b5;
 }
 
 a:active {
-    color: #90278E;
+    color: #3f51b5;
 }
 
 .active {
@@ -58,7 +58,7 @@ a:active {
 }
 
 .btn-more:hover {
-    border-color: #90278E !important;
+    border-color: #3f51b5 !important;
 }
 
 ::ng-deep .mat-menu-item {
