@@ -1,15 +1,15 @@
 <div class="body">
   <!-- div container start -->
   <section>
-      <div class="container mt-4">
+      <div class="container mt-5">
           <div class="row justify-content-center">
-              <div class="col-md-6 mt-6">
+              <div class="col-md-6 mt-5">
                   <div class="text-center">
-                      <p class="text-login">Log in to your account</p>
+                      <p class="text-login mb-4">Log in to your account</p>
                       <p class="text-sub-l">Welcome to SUTRA, please put your <br> login credentials below to start using our service.</p>
                   </div>
                   <!-- Login Form -->
-                  <form #loginForm="ngForm" class="register-form center" id="loginForm" (ngSubmit)="onLogin(loginForm)">
+                  <form #loginForm="ngForm" class="register-form center mt-4" id="loginForm" (ngSubmit)="onLogin(loginForm)">
 
                       <!-- Login Input Field -->
                       <div class="mt-3">
@@ -34,12 +34,12 @@
                           <mat-checkbox [checked]="isSelected" class="example-margin">Remember me</mat-checkbox>
                       </div> -->
                       <!-- Login Button Field -->
-                      <div class="mt-2">
+                      <div class="text-center">
                           <button mat-raised-button color="accent" name="signin" type="submit">Log in</button>
                       </div>
 
                       <!-- forgot pass field -->
-                      <div class="text-center mt-3">
+                      <div class="text-center my-4">
                           <a class="link link-6" routerLink="../forgot-password"> <span>Forgot Password?</span></a>
                       </div>
 

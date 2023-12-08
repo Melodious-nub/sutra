@@ -24,6 +24,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AccountConfirmationComponent } from './pages/account-confirmation/account-confirmation.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { ToastrModule } from 'ngx-toastr';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { ToastrModule } from 'ngx-toastr';
       countDuplicates: true,
       resetTimeoutOnDuplicate: true,
     }),
+    MatCardModule,
   ],
   providers: [
     provideHttpClient(withFetch()),
