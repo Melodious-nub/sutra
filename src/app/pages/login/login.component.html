@@ -18,10 +18,17 @@
                                     <label for="ticket-number" class="form-label">Email address</label>
                                     <input ngModel required name="email" type="text" class="form-control" id="ticket-number" placeholder="Enter your email">
                                 </div>
+                                
                                 <div class="mb-3">
                                     <label for="Password" class="form-label">Password</label>
-                                    <input ngModel required name="password" type="password" class="form-control" id="Password" placeholder="Enter your password">
-                                </div>
+                                    <div class="input-group">
+                                      <input [(ngModel)]="password" required name="password" type="password" class="form-control" id="Password" placeholder="Enter your password">
+                                      <button class="btn btn-sm btn-outline-secondary" type="button" id="button-addon2" (click)="togglePasswordVisibility()">
+                                        <i class="bi bi-eye-slash" *ngIf="passwordVisible; else eyeOpen"></i>
+                                        <ng-template #eyeOpen><i class="bi bi-eye"></i></ng-template>
+                                      </button>
+                                    </div>
+                                  </div>
                         
                                 <div class="pt-2">
                                     <div class="d-grid mx-auto">

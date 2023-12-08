@@ -17,8 +17,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  passwordVisible = false;
+  password: string = '';
+
+  togglePasswordVisibility(): void {
+    this.passwordVisible = !this.passwordVisible;
+    let passwordInput = document.getElementById('Password') as HTMLInputElement;
+    passwordInput.type = this.passwordVisible ? 'text' : 'password';
+  }
+
   onLogin(loginForm: NgForm):void {
-    const loginData = { email: loginForm.value.email, password: loginForm.value.password };
+    const loginData = { email: loginForm.value.email, password: this.password };
     this.auth.login(loginData).subscribe({
       next: (res: any) => {
         if (res.success && res.statusCode === 200) {
