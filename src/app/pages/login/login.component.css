@@ -1,129 +1,9 @@
-mat-form-field {
-    width: 100%;
-    font-size: 11px;
-}
-
-/* .material-icons-name {
-    font-size: 18px;
-}
-
-.mat-raised-button {
-    width: 90%;
-    background-color: #92428e;
-}
-
-.mat-flat-button {
-    width: 25%;
-    background-color: #92428e;
-    color: #FFFFFF;
-} */
-
-.example-margin {
-    margin: 0 12px;
-}
-
-
-/* mat-label normal state style */
-
-/* ::ng-deep .mat-form-field-label {
-    color: rgba(0, 0, 0, .7)!important;
-    padding-left: 5px !important;
-} */
-
-
-/* mat-label focused style invalid and valid state */
-
-/* ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-    color: black!important;
-    font-size: 12px;
-    line-height: 14px;
-    transform: translateY(-1.6em) scale(.66) !important;
-} */
-
-/* ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-    color: black !important;
-} */
-
-
-/* mat-input carent color */
-
-/* ::ng-deep .mat-input-element {
-    caret-color: black!important;
-    padding-left: 5px !important;
-} */
-
-
-/* for checkbox material */
-
-
-/* // overwrite the checkbox background */
-
-/* ::ng-deep .mat-checkbox-checked .mat-checkbox-background,
-.mat-checkbox-indeterminate .mat-checkbox-background {
-    background-color: #92428e !important;
-} */
-
-
-/* // overwrite the ripple overlay on hover and click */
-
-/* ::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
-    background-color: black !important;
-} */
-
-.text-login {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 28px;
-    /* line-height: 48px; */
-    /* identical to box height */
-    color: #000000;
-}
-
-.text-sub-l {
-    font-style: normal;
-    font-weight: 300;
-    font-size: 13px;
-    line-height: 18px;
-    text-align: center;
-    color: #000000;
-}
 
 .text-signup {
     font-weight: 600;
     font-size: 28px;
     color: #000000;
 }
-
-.text-sub-s {
-    font-weight: 300;
-    font-size: 13px;
-    line-height: 18px;
-    text-align: center;
-    color: #000000;
-}
-
-.f-info {
-    position: relative;
-    background: #FFFFFF;
-    box-shadow: inset -4px -4px 3px #FFFFFF, inset 4px 4px 7px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    width: 90%;
-    height: 50px;
-    /* for center input box */
-    margin: auto;
-    display: block;
-}
-
-.f-info {
-    max-width: 550px;
-}
-
-.b-info {
-    box-shadow: -5px -5px 10px #FFFFFF, 5px 5px 10px rgba(151, 149, 169, 0.5);
-    border-radius: 35px;
-    padding: 10px 40px;
-}
-
 
 /* Css Style classes for hovering from canvas mix-link hover styles */
 
@@ -134,7 +14,7 @@ mat-form-field {
     position: relative;
     cursor: pointer;
     white-space: nowrap;
-    color: #93117D;
+    color: #3f51b5;
     font-size: 15px;
 }
 
@@ -223,7 +103,7 @@ mat-form-field {
 
 .nav-tabs .nav-link.active {
     color: #FFFFFF;
-    background: #93117D;
+    background: #3f51b5;
     box-shadow: -5px -5px 10px #FFFFFF, 5px 5px 10px rgba(151, 149, 169, 0.5);
     border-radius: 39.5px;
     padding: 9px 25px;
@@ -238,144 +118,10 @@ mat-form-field {
 .nav-link {
     display: block;
     padding: 0.5rem 1rem;
-    color: #93117D;
+    color: #3f51b5;
     text-decoration: none;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 }
-
-
-/* for all material input */
-
-
-/* mat-icon-stepper selected color change  */
-
-
-/* ::ng-deep .mat-step-header .mat-step-icon-selected,
-.mat-step-header .mat-step-icon-state-done,
-.mat-step-header .mat-step-icon-state-edit {
-    background-color: red!important;
-} */
-
-
-/* input outline color */
-
-/* ::ng-deep .mat-form-field .mat-form-field-label {
-    text-transform: capitalize !important;
-} */
-
-
-/* ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: #93117d !important;
-    opacity: 1!important;
-} */
-
-
-/* mat-input focused color */
-
-
-/* ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-    color: #93117d !important;
-} */
-
-
-/* ::ng-deep .mat-form-field-underline,
- ::ng-deep .mat-form-field-ripple {
-    background-color: white!important;
-    opacity: 0;
-} */
-
-
-/* mat-input error outline color */
-
-
-/* ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
-    opacity: 0.8!important;
-} */
-
-
-/* mat-input carent color */
-
-
-/* ::ng-deep .mat-input-element {
-    caret-color: red!important;
-    padding-left: 10px !important;
-} */
-
-
-/* mat-input error carent color */
-
-
-/* ::ng-deep .mat-form-field-invalid .mat-input-element,
-.mat-warn .mat-input-element {
-    caret-color: red!important;
-} */
-
-
-/* mat-label normal state style */
-
-
-/* ::ng-deep .mat-form-field-label {
-    color: rgba(0, 0, 0, .6)!important;
-    padding-left: 10px !important;
-} */
-
-
-/* mat-label focused style */
-
-
-/* ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-    color: #93117d !important;
-    padding-left: 30px !important;
-}
-
-::ng-deep .mat-form-field.mat-focused.mat-form-field-invalid .mat-form-field-label {
-    color: red !important;
-    padding-left: 30px !important;
-} */
-
-
-/* mat-label error style */
-/* 
-::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
-    color: red!important;
-} */
-
-
-/* mat level border  */
-
-
-/* 1st solution - causes weird thing at the left side of input */
-
-
-/* ::ng-deep .mat-form-field-outline-start {
-    border-radius: 30px 0 0 30px !important;
-    min-width: 30px !important;
-} */
-
-
-/* ::ng-deep .mat-form-field-outline-end {
-    border-radius: 0 30px 30px 0 !important;
-} */
-
-
-/* Radio Container  and checkbox*/
-
-
-/* ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
-    background-color: #93117d !important;
-}
-
-::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-    border-color: #93117d !important;
-}
-
-.radio-container input:checked~.checkmark {
-    background-color: #e5e5e5;
-} */
-
-
-/* Typical Device Breakpoints */
-
 
 /* Extra small devices (phones, 600px and down) */
 
@@ -425,4 +171,107 @@ mat-form-field {
     .body {
         background-size: 580px 280px;
     }
+}
+
+.form-control {
+    background: #FCFCFC;
+    border: 1px solid #02111B;
+    border-radius: 3px;
+    height: 34px;
+}
+
+.form-control:focus {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(150, 45, 145, 0.6) !important;
+    border-color: #962d91;
+}
+
+.form-label {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 21px;
+    color: #02111B;
+}
+
+.form-container {
+    max-width: 320px;
+    margin: auto;
+}
+
+.login-text {
+    /* padding: 40px 0px; */
+    font-weight: 500;
+    font-size: 30px;
+    /* line-height: 54px; */
+    /* identical to box height */
+
+    color: #000000;
+}
+
+.span-sizing {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 10px;
+
+    color: #000000;
+}
+
+.btn-hover:hover {
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12);
+}
+
+.login {
+  height: calc(100vh - 80px);
+}
+
+/* Links */
+
+.link {
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+    color: rgb(45, 69, 202);
+    font-size: 15px;
+}
+
+.link::before,
+.link::after {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+}
+
+.link::before {
+    content: '';
+    /* show by default */
+}
+
+
+/* Link 6 */
+
+.link-6 {
+    font-size: 15px;
+}
+
+.link-6::before {
+    transform-origin: 50% 100%;
+    transition: clip-path 0.3s, transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+    clip-path: polygon(0% 0%, 0% 100%, 0 100%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%, 100% 100%, 100% 0%);
+}
+
+.link-6:hover::before {
+    transform: translate3d(0, 2px, 0) scale3d(1.08, 3, 1);
+    clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 0, 50% 0, 50% 100%, 50% 100%, 0 100%, 100% 100%, 100% 0%);
+}
+
+.link-6 span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+}
+
+.link-6:hover span {
+    transform: translate3d(0, -2px, 0);
 }
