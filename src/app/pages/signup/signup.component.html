@@ -3,7 +3,7 @@
         <!-- The image half -->
         <div class="col-lg-6">
             <div class="login d-flex align-items-center justify-content-center">
-                <div class="text-center mb-4">
+                <div class="text-center mb-4 animate__animated animate__fadeInUp">
                     <p class="text-signup pb-2">Already have an account ?</p>
                     <p class="text-sub-s pb-2">Login to SUTRA and make your <br> supplychain management easier</p>
                     <button routerLink="../login" mat-raised-button class="mb-4">Login</button>
@@ -15,7 +15,7 @@
         <div class="col-lg-6 bg-light">
             <div class="login d-flex align-items-center">
                 <!-- Demo content-->
-                <div class="container">
+                <div class="container animate__animated animate__fadeInDown">
                     <div class="row">
                         <div class="col-lg-10 col-xl-7 mx-auto">
                             <div class="text-center">
@@ -168,7 +168,7 @@
                 
                                     <!-- Checkbox for accepting terms and conditions -->
                                     <div>
-                                        <mat-checkbox formControlName="termsAndCondition">
+                                        <mat-checkbox formControlName="termsAndCondition" color="primary">
                                             <span class="bold-text">I accept the</span>
                                         </mat-checkbox>
                                         <a type="button" class="term-con ps-1" (click)="openDialog()">terms and conditions</a>
@@ -177,7 +177,7 @@
                                     <div class="mt-2">
                                         <button mat-button matStepperPrevious>Back</button>
                                         <button mat-button (click)="stepper.reset()" (click)="clearFile()" (click)="clearFileLicense()">Reset</button>
-                                        <button mat-button class="float-end" [disabled]="firstFormGroup.invalid || secondFormGroup.invalid" (click)="onRegSubmit()">Sign up</button>
+                                        <button mat-button color="primary" class="float-end" [disabled]="firstFormGroup.invalid || secondFormGroup.invalid" (click)="onRegSubmit()">Sign up</button>
                                     </div>
                                     </form>
                                 </mat-step>
