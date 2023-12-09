@@ -177,6 +177,8 @@ export class SignupComponent implements OnInit {
     this.api.signUp(formData).subscribe({
       next: (res: any) => {
         if (res.success && res.statusCode === 200) {
+          // console.log(res);
+          this.SendEmail(res.data);
           this.toastr.success(res.message);
           // Navigate to another page on success
           // this.router.navigate(['admin']);
@@ -190,6 +192,23 @@ export class SignupComponent implements OnInit {
         // console.log(error, "error");
       }
     });
+    }
+
+    SendEmail(data:any) {
+      this.api.sendEmail(data).subscribe({
+        next: (res: any) => {
+          if (res.success === true) {
+            console.log(res);
+            // this.toastr.success(res.message, 'Congratulation.');
+          } else {
+            // this.emailConfirmed = false;
+            // this.toastr.warning(res.message, 'Oops!');
+          }
+        },
+        error: (error: any) => {
+          this.toastr.error(error);
+        }
+      });
     }
 
     // for modal behaviour used angular material modal

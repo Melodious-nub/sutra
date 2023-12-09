@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {  
   hide = true;
 
-  constructor(private auth: AuthService, private router: Router, private api: DataService) { }
+  constructor(private auth: AuthService, private router: Router, private api: DataService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -31,15 +32,16 @@ export class LoginComponent implements OnInit {
     this.auth.login(loginData).subscribe({
       next: (res: any) => {
         if (res.success && res.statusCode === 200) {
-          console.log(res,'login');
-          
+          this.toastr.success(res.message);
           // Navigate to another page on success
           this.router.navigate(['admin']); // Update with your success route
         } else {
           // this.errorMessage = 'Invalid credentials';
+          this.toastr.warning(res.message);
         }
       },
       error: (error: any) => {
+        this.toastr.error(error);
         // this.errorMessage = 'Login failed';
         // Handle the error (e.g., display error message)
       }

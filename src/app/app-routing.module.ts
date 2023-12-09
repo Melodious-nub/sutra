@@ -12,7 +12,7 @@ const routes: Routes = [
     { path:'login', component: LoginComponent},
     { path:'signup', component: SignupComponent},
     // { path:'forgot-password', component: ForgetPasswordComponent},
-    { path: 'account-confirmation/account/verify-email', component: AccountConfirmationComponent },
+    { path: 'account-confirmation', component: AccountConfirmationComponent },
     { path: '',   redirectTo: '/', pathMatch: 'full' },
     // Lazzy Loading Route 1
     {

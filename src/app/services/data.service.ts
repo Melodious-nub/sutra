@@ -10,11 +10,19 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   login(data:any) {
-    return this.http.post<any>(environment.baseUrl+'/api/v1/Admin', data);
+    return this.http.post<any>(environment.baseUrl+'/api/v1/Registration/login', data);
   }
 
   signUp(data:any) {
     return this.http.post<any>(environment.baseUrl+'/api/v1/Registration', data);
+  }
+
+  sendEmail(data:any) {
+    return this.http.post<any>(environment.baseUrl+'/api/v1/Registration/send-email', data);
+  }
+
+  verifyEmail(data:any) {
+    return this.http.post<any>(environment.baseUrl+'/api/v1/Registration/verify-email', data);
   }
 
 }
