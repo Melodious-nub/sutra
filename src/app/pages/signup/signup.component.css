@@ -1,11 +1,5 @@
-.text-signup {
-    font-weight: 600;
-    font-size: 24px;
-    color: #000000;
-}
-
 .text-login {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 24px;
     /* line-height: 48px; */
     /* identical to box height */
@@ -24,7 +18,7 @@ mat-form-field {
 }
 
 .text-signup {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 28px;
     color: #000000;
 }
