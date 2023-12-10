@@ -7,7 +7,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
@@ -55,7 +55,7 @@ import {MatCardModule} from '@angular/material/card';
     MatDialogModule,
     ToastrModule.forRoot({
       timeOut: 2000,
-      positionClass: 'toast-top-right',
+      positionClass: 'toast-bottom-right',
       // progressBar: true,
       // progressAnimation: 'decreasing',
       preventDuplicates: true,
@@ -63,6 +63,7 @@ import {MatCardModule} from '@angular/material/card';
       resetTimeoutOnDuplicate: true,
     }),
     MatCardModule,
+    NgbTypeaheadModule,
   ],
   providers: [
     provideHttpClient(withFetch()),

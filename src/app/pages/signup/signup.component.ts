@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, NgForm, Validators, ValidatorFn, A
 import { Router } from '@angular/router';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { passwordMatchValidator } from '../../services/passwordMatchValidator';
-import { Observable, map, startWith } from 'rxjs';
+import { Observable, debounceTime, distinctUntilChanged, map, startWith } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { TermsAndConditionsComponent } from '../../modals/terms-and-conditions/terms-and-conditions.component';
 import { ToastrService } from 'ngx-toastr';
@@ -58,7 +58,6 @@ export class SignupComponent implements OnInit {
     'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu',
     'Vatican City', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'
   ];
-  filteredOptions!: Observable<string[]>;
 
   constructor(private api: DataService, private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, private toastr: ToastrService,) { }
 
@@ -81,22 +80,19 @@ export class SignupComponent implements OnInit {
       companyLicenseFile: [null, Validators.required],
       termsAndCondition: [false, Validators.requiredTrue],
     });
-
-    // for country value autocomplete
-    const countryControl = this.secondFormGroup.get('country');
-    if (countryControl) {
-      this.filteredOptions = countryControl.valueChanges.pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
-    }
   }
 
-  // private filter method for country autocomplete
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+  search = (text$: Observable<string>) => 
+    text$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      map(term => term.length < 2 ? [] : this.options.filter(v => v.toLowerCase().includes(term.toLowerCase())).slice(0, 10))
+    );
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  formatter = (result: string) => result;
+
+  onItemSelect(item: any) {
+    console.log('Selected Item:', item);
   }
 
   // for comapny id card file

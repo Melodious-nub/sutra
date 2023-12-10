@@ -17,144 +17,141 @@
                 <!-- Demo content-->
                 <div class="container animate__animated animate__fadeInDown">
                     <div class="row">
-                        <div class="col-lg-10 col-xl-7 mx-auto">
+                        <div class="col-lg-11 col-xl-8 mx-auto">
                             <div class="text-center">
                                 <p class="text-sub-l"><b class="text-login">Sign up for new account</b></p>
                             </div>
 
                             <mat-stepper #stepper>
                                 <mat-step [stepControl]="firstFormGroup" errorMessage="All fields are required.">
-                                    <form [formGroup]="firstFormGroup">
+                                    <form [formGroup]="firstFormGroup" class="row">
                                     <ng-template matStepLabel>Fill out your details</ng-template>
                                     <!-- Full Name -->
-                                    <mat-form-field appearance="outline" class="mt-2 small-form-field" appearance="outline">
-                                        <mat-label>Full Name</mat-label>
-                                        <input matInput placeholder="Type your full name..." formControlName="fullName">
-                                    </mat-form-field>
+                                    <div class="mb-2 col-lg-6">
+                                        <label for="full-name" class="form-label">Full Name *</label>
+                                        <input type="text" class="form-control form-control-sm" id="full-name" placeholder="Type your full name..." formControlName="fullName">
+                                    </div>
+
+                                    <!-- Designation -->
+                                    <div class="mb-2 col-lg-6">
+                                        <label for="full-name" class="form-label">Designation *</label>
+                                        <input type="text" class="form-control form-control-sm" id="full-name" placeholder="Type your designation..." formControlName="designation">
+                                    </div>
                 
                                     <!-- Email -->
-                                    <mat-form-field class="small-form-field" appearance="outline">
-                                        <mat-label>Email</mat-label>
-                                        <input matInput placeholder="Type your email..." formControlName="email">
-                                    </mat-form-field>
-                
-                                    <!-- Designation -->
-                                    <mat-form-field class="small-form-field" appearance="outline">
-                                        <mat-label>Designation</mat-label>
-                                        <input matInput placeholder="Type your designation..." formControlName="designation">
-                                    </mat-form-field>
+                                    <div class="mb-3 col-lg-12">
+                                        <label for="full-name" class="form-label">Email *</label>
+                                        <input type="text" class="form-control form-control-sm" id="full-name" placeholder="Type your email..." formControlName="email">
+                                    </div>
                 
                                     <!-- Company id card  file upload-->
-                                    <div>
+                                    <div class="mb-2 col-lg-12">
                                         @if (companyIdName) {
-                                            <mat-form-field class="small-form-field" appearance="outline">
-                                                <mat-label>Selected file</mat-label>
-                                                <input matInput [value]="companyIdName" readonly required>
-                                                <button type="button" matSuffix mat-icon-button aria-label="Clear file" (click)="clearFile()">
-                                                    <mat-icon>close</mat-icon>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control form-control-sm" [value]="companyIdName" readonly required>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="clearFile()">
+                                                  <i class="bi bi-x-lg"></i> <!-- Using Bootstrap Icons for the 'x' icon -->
                                                 </button>
-                                            </mat-form-field>
+                                            </div>
                                         } @else {
-                                            <button class="mb-4" type="button" mat-raised-button (click)="fileInput.click()">
-                                                <mat-icon>attach_file</mat-icon>
-                                                Select File
-                                            </button> <span style="font-size: 11px; padding-left: 8px;">Upload your company id card (img or pdf) *</span>
+                                            <div>
+                                                <button type="button" class="btn btn-primary btn-sm" (click)="fileInput.click()">
+                                                  <i class="bi bi-paperclip"></i> <!-- Using Bootstrap Icons for the paperclip icon -->
+                                                  Select File
+                                                </button>
+                                                <span style="font-size: 11px; padding-left: 8px;">Upload your company id card (img or pdf) *</span>
+                                            </div>
                                         }
                                     
                                         <input type="file" accept="image/png, image/jpeg, image/gif, application/pdf" #fileInput style="display: none" (change)="onFileSelected($event)">
                                         
                                         @if (firstFormGroup.get('companyIdCardFile')?.invalid && firstFormGroup.get('companyIdCardFile')?.touched) {
+                                            <!-- File required validation message -->
                                             <div>
                                                 File is required
                                             </div>
                                         }
-                                    </div>
+                                    </div>                                     
                 
                                     <!-- password Feild -->
-                                    <div>
-                                        <mat-form-field class="small-form-field" appearance="outline">
-                                            <mat-label>Password</mat-label>
-                                            <input matInput [type]="hide ? 'password' : 'text'"  type="password" formControlName="password" id="password">
-                                            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    <div class="form-group col-lg-6 mb-2">
+                                        <label for="password" class="form-label">Password *</label>
+                                        <div class="input-group">
+                                            <input [type]="hide ? 'password' : 'text'" class="form-control form-control-sm" formControlName="password" id="password" placeholder="Enter your password">
+                                            <button class="btn btn-outline-secondary btn-sm" type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'">
+                                            <i class="{{ hide ? 'bi bi-eye-slash' : 'bi bi-eye' }}"></i>
                                             </button>
-                                            <!-- <mat-error *ngIf="password.errors?.['pattern']">Contain number, uppercase,lowercase letter, and at least 6 characters</mat-error> -->
-                                        </mat-form-field>
+                                        </div>
                                     </div>
-                
-                
+
                                     <!-- Confirm password Feild -->
-                                    <div>
-                                        <mat-form-field class="small-form-field" appearance="outline">
-                                            <mat-label>Re-enter password</mat-label>
-                                            <input matInput [type]="hideC ? 'password' : 'text'" type="password" formControlName="confirmPassword" id="confirmPassword">
-                                            <button type="button" mat-icon-button matSuffix (click)="hideC = !hideC" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideC">
-                                                <mat-icon>{{hideC ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                            </button>
-                                            <mat-error *ngIf="firstFormGroup.hasError('passwordMismatch') && firstFormGroup.get('confirmPassword')?.touched">Passwords do not match</mat-error>
-                                        </mat-form-field>
-                                    </div>
+                                    <div class="form-group col-lg-6 mb-2">
+                                        <label for="confirmPassword" class="form-label">Confirm password *</label>
+                                        <div class="input-group">
+                                          <input [type]="hideC ? 'password' : 'text'" class="form-control form-control-sm" formControlName="confirmPassword" id="confirmPassword" placeholder="Re-enter your password">
+                                          <button class="btn btn-outline-secondary btn-sm" type="button" (click)="hideC = !hideC" [attr.aria-label]="'Hide password'">
+                                            <i class="{{ hideC ? 'bi bi-eye-slash' : 'bi bi-eye' }}"></i>
+                                          </button>
+                                        </div>
+                                        <div *ngIf="firstFormGroup.hasError('passwordMismatch') && firstFormGroup.get('confirmPassword')?.touched" class="invalid-feedback">
+                                          Passwords do not match
+                                        </div>
+                                    </div>                                   
                                     
-                                    <div>
-                                        <button mat-button matStepperNext>Next</button>
+                                    <div class="mt-1">
+                                        <button matStepperNext class="btn btn-sm btn-light">Next</button>
                                     </div>
                                     </form>
                                 </mat-step>
                 
                 
                                 <mat-step [stepControl]="secondFormGroup" errorMessage="All fields are required.">
-                                    <form [formGroup]="secondFormGroup">
+                                    <form [formGroup]="secondFormGroup" class="row">
                                     <ng-template matStepLabel>Fill out your company details</ng-template>
-                                    <mat-form-field class="mt-2 small-form-field" appearance="outline">
-                                        <mat-label>Company name</mat-label>
-                                        <input matInput placeholder="Type company name..." formControlName="companyName">
-                                    </mat-form-field>
+                                    <div class="mb-2 col-lg-6">
+                                        <label for="full-name" class="form-label">Company name *</label>
+                                        <input type="text" class="form-control form-control-sm" id="full-name" placeholder="Type your full name..." formControlName="fullName">
+                                    </div>
                 
-                                    <!-- <mat-form-field class="small-form-field" appearance="outline">
-                                        <mat-label>Country</mat-label>
-                                        <input matInput placeholder="Type country name..." formControlName="country">
-                                    </mat-form-field> -->
+                                    <!-- country(autocomplete/ng-bootstrap typehead) -->
+                                    <div class="form-group col-lg-6 mb-2">
+                                        <label for="country" class="form-label">Country</label>
+                                        <input type="text" class="form-control form-control-sm" id="country" placeholder="Type country name..." aria-label="Country" formControlName="country" [ngbTypeahead]="search" [inputFormatter]="formatter" [resultFormatter]="formatter" (selectItem)="onItemSelect($event.item)">
+                                      
+                                        <ng-template #rt let-r="result" let-t="term">
+                                          <ngb-highlight [result]="r" [term]="t"></ngb-highlight>
+                                        </ng-template>
+                                    </div>                            
                 
-                                    <mat-form-field class="small-form-field" appearance="outline">
-                                        <mat-label>Country</mat-label>
-                                        <input type="text"
-                                                placeholder="Type country name..."
-                                                aria-label="Country"
-                                                matInput
-                                                formControlName="country"
-                                                [matAutocomplete]="auto">
-                                        <mat-autocomplete #auto="matAutocomplete">
-                                            @for (option of filteredOptions | async; track option) {
-                                            <mat-option [value]="option">{{option}}</mat-option>
-                                            }
-                                        </mat-autocomplete>
-                                    </mat-form-field>
+                                    <!-- company address -->
+                                    <div class="mb-2 col-lg-6">
+                                        <label for="companyAddress" class="form-label">Company address *</label>
+                                        <input type="text" class="form-control form-control-sm" id="companyAddress" placeholder="Type country name..." formControlName="companyAddress">
+                                    </div>
                 
-                                    <mat-form-field class="small-form-field" appearance="outline">
-                                        <mat-label>Company address</mat-label>
-                                        <input matInput placeholder="Type country name..." formControlName="companyAddress">
-                                    </mat-form-field>
-                
-                                    <mat-form-field class="small-form-field" appearance="outline">
-                                        <mat-label>Company email</mat-label>
-                                        <input matInput placeholder="Type your email..." formControlName="companyEmail">
-                                    </mat-form-field>
+                                    <!-- company email -->
+                                    <div class="mb-2 col-lg-6">
+                                        <label for="companyEmail" class="form-label">Company email *</label>
+                                        <input type="text" class="form-control form-control-sm" id="companyEmail" placeholder="Type country name..." formControlName="companyEmail">
+                                    </div>
                 
                                     <!-- Company license/tin/docs -->
-                                    <div>
+                                    <div class="mt-2 mb-3 col-lg-12">
                                         @if (companyLicenseName) {
-                                            <mat-form-field class="small-form-field" appearance="outline" class="example-full-width">
-                                                <mat-label>Selected file</mat-label>
-                                                <input matInput [value]="companyLicenseName" readonly required>
-                                                <button type="button" matSuffix mat-icon-button aria-label="Clear file" (click)="clearFileLicense()">
-                                                    <mat-icon>close</mat-icon>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control form-control-sm" [value]="companyLicenseName" readonly required>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="clearFileLicense()">
+                                                  <i class="bi bi-x-lg"></i> <!-- Using Bootstrap Icons for the 'x' icon -->
                                                 </button>
-                                            </mat-form-field>
+                                            </div>
                                         } @else {
-                                            <button class="mb-3" type="button" mat-raised-button (click)="fileInputLicense.click()">
-                                                <mat-icon>attach_file</mat-icon>
-                                                Select File
-                                            </button> <span style="font-size: 11px; padding-left: 8px;">Upload your license/Tin/Bin etc.(img or pdf) *</span>
+                                            <div>
+                                                <button type="button" class="btn btn-primary btn-sm" (click)="fileInputLicense.click()">
+                                                  <i class="bi bi-paperclip"></i> <!-- Using Bootstrap Icons for the paperclip icon -->
+                                                  Select File
+                                                </button>
+                                                <span style="font-size: 11px; padding-left: 8px;">Upload your company id card (img or pdf) *</span>
+                                            </div>
                                         }
                                     
                                         <input type="file" accept="image/png, image/jpeg, image/gif, application/pdf" #fileInputLicense style="display: none" (change)="onFileSelectedLicense($event)">
@@ -167,17 +164,20 @@
                                     </div>
                 
                                     <!-- Checkbox for accepting terms and conditions -->
-                                    <div>
-                                        <mat-checkbox formControlName="termsAndCondition" color="primary">
-                                            <span class="bold-text">I accept the</span>
-                                        </mat-checkbox>
-                                        <a type="button" class="term-con ps-1" (click)="openDialog()">terms and conditions</a>
+                                    <div class="col-lg-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="termsAndCondition" formControlName="termsAndCondition">
+                                            <label class="form-check-label" for="termsAndCondition" style="cursor: pointer;">
+                                                I accept the
+                                            </label>
+                                            <a type="button" class="term-con ms-1" (click)="openDialog()">terms and conditions</a>
+                                        </div>                                      
                                     </div>
                 
                                     <div class="mt-2">
-                                        <button mat-button matStepperPrevious>Back</button>
-                                        <button mat-button (click)="stepper.reset()" (click)="clearFile()" (click)="clearFileLicense()">Reset</button>
-                                        <button mat-button color="primary" class="float-end" [disabled]="firstFormGroup.invalid || secondFormGroup.invalid" (click)="onRegSubmit()">Sign up</button>
+                                        <button class="btn btn-sm btn-light" matStepperPrevious>Back</button>
+                                        <button class="btn btn-sm btn-light ms-2" (click)="stepper.reset()" (click)="clearFile()" (click)="clearFileLicense()">Reset</button>
+                                        <button color="primary" class="float-end btn btn-sm btn-primary" [disabled]="firstFormGroup.invalid || secondFormGroup.invalid" (click)="onRegSubmit()">Sign up</button>
                                     </div>
                                     </form>
                                 </mat-step>

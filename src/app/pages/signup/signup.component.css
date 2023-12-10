@@ -26,8 +26,6 @@ mat-form-field {
 .form-control {
     background: #FCFCFC;
     border: 1px solid #02111B;
-    border-radius: 3px;
-    height: 34px;
 }
 
 .form-control:focus {
@@ -40,6 +38,12 @@ mat-form-field {
     font-size: 13px;
     line-height: 21px;
     color: #02111B;
+}
+
+.form-check-label {
+    font-weight: 400;
+    font-size: 14px;
+    color: black;
 }
 
 .form-container {
@@ -70,7 +74,7 @@ mat-form-field {
 }
 
 .login {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 60px);
 }
 
 /* Links */
