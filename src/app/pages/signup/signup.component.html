@@ -115,7 +115,7 @@
                 
                                     <!-- country(autocomplete/ng-bootstrap typehead) -->
                                     <div class="form-group col-lg-6 mb-2">
-                                        <label for="country" class="form-label">Country</label>
+                                        <label for="country" class="form-label">Country *</label>
                                         <input type="text" class="form-control form-control-sm" id="country" placeholder="Type country name..." aria-label="Country" formControlName="country" [ngbTypeahead]="search" [inputFormatter]="formatter" [resultFormatter]="formatter" (selectItem)="onItemSelect($event.item)">
                                       
                                         <ng-template #rt let-r="result" let-t="term">
