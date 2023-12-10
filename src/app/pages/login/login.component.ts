@@ -29,23 +29,27 @@ export class LoginComponent implements OnInit {
 
   onLogin(loginForm: NgForm):void {
     const loginData = { email: loginForm.value.email, password: this.password };
-    this.auth.login(loginData).subscribe({
-      next: (res: any) => {
-        if (res.success && res.statusCode === 200) {
-          this.toastr.success(res.message);
-          // Navigate to another page on success
-          this.router.navigate(['admin']); // Update with your success route
-        } else {
-          // this.errorMessage = 'Invalid credentials';
-          this.toastr.warning(res.message);
+    if(loginForm.valid) {
+      this.auth.login(loginData).subscribe({
+        next: (res: any) => {
+          if (res.success && res.statusCode === 200) {
+            this.toastr.success(res.message);
+            // Navigate to another page on success
+            this.router.navigate(['admin']); // Update with your success route
+          } else {
+            // this.errorMessage = 'Invalid credentials';
+            this.toastr.warning(res.message);
+          }
+        },
+        error: (error: any) => {
+          this.toastr.error(error);
+          // this.errorMessage = 'Login failed';
+          // Handle the error (e.g., display error message)
         }
-      },
-      error: (error: any) => {
-        this.toastr.error(error);
-        // this.errorMessage = 'Login failed';
-        // Handle the error (e.g., display error message)
-      }
-    });
+      });
+    } else {
+      this.toastr.error("Please ensure all login credentials are correctly filled in.");
+    }
   }
   // end user login with success
 
