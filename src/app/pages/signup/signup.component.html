@@ -79,17 +79,19 @@
                                     </div>
 
                                     <!-- Confirm password Feild -->
-                                    <div class="form-group col-lg-6 mb-2">
+                                    <div class="form-group col-lg-6">
                                         <label for="confirmPassword" class="form-label">Confirm password *</label>
                                         <div class="input-group">
-                                          <input [type]="hideC ? 'password' : 'text'" class="form-control form-control-sm" formControlName="confirmPassword" id="confirmPassword" placeholder="Re-enter your password">
+                                          <input [type]="hideC ? 'password' : 'text'" class="form-control form-control-sm" formControlName="confirmPassword" id="confirmPassword" placeholder="Re-enter your password" [ngClass]="{'is-invalid': firstFormGroup.hasError('passwordMismatch')}">
                                           <button class="btn btn-outline-secondary btn-sm" type="button" (click)="hideC = !hideC" [attr.aria-label]="'Hide password'">
                                             <i class="{{ hideC ? 'bi bi-eye-slash' : 'bi bi-eye' }}"></i>
                                           </button>
                                         </div>
-                                        <div *ngIf="firstFormGroup.get('passwordMismatch') && firstFormGroup.get('confirmPassword')?.touched" class="invalid-feedback">
-                                          Passwords do not match
-                                        </div>
+                                        @if (firstFormGroup.hasError('passwordMismatch') && firstFormGroup.get('confirmPassword')?.touched) {
+                                            <p class="invalid-status">
+                                                *Passwords do not match
+                                            </p>
+                                        }
                                     </div>                                   
                                     
                                     <div class="mt-1">

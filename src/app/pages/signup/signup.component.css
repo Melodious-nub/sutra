@@ -133,3 +133,9 @@ mat-form-field {
 .form-control.is-invalid, .form-control.ng-invalid.ng-touched {
     border-color: #dc3545;
 }
+
+.invalid-status {
+    color: #dc3545;
+    font-size: 10px;
+    margin: 0 0 1px;
+}
