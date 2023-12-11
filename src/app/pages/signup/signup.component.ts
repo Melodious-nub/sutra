@@ -82,6 +82,7 @@ export class SignupComponent implements OnInit {
     });
   }
 
+  // typehead method
   search = (text$: Observable<string>) => 
     text$.pipe(
       debounceTime(200),
@@ -91,8 +92,11 @@ export class SignupComponent implements OnInit {
 
   formatter = (result: string) => result;
 
-  onItemSelect(item: any) {
-    console.log('Selected Item:', item);
+  validateFirstFormGroup() {
+    Object.keys(this.firstFormGroup.controls).forEach(field => {
+      const control = this.firstFormGroup.get(field);
+      control?.markAsTouched({ onlySelf: true });
+    });
   }
 
   // for comapny id card file

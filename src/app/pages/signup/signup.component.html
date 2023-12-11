@@ -55,7 +55,7 @@
                                             </div>
                                         } @else {
                                             <div>
-                                                <button type="button" class="btn btn-primary btn-sm" (click)="fileInput.click()">
+                                                <button type="button" class="btn btn-primary btn-sm" [ngClass]="{'btn-danger': firstFormGroup.get('companyIdCardFile')?.invalid && firstFormGroup.get('companyIdCardFile')?.touched}" (click)="fileInput.click()">
                                                   <i class="bi bi-paperclip"></i> <!-- Using Bootstrap Icons for the paperclip icon -->
                                                   Select File
                                                 </button>
@@ -64,13 +64,6 @@
                                         }
                                     
                                         <input type="file" accept="image/png, image/jpeg, image/gif, application/pdf" #fileInput style="display: none" (change)="onFileSelected($event)">
-                                        
-                                        @if (firstFormGroup.get('companyIdCardFile')?.invalid && firstFormGroup.get('companyIdCardFile')?.touched) {
-                                            <!-- File required validation message -->
-                                            <div>
-                                                File is required
-                                            </div>
-                                        }
                                     </div>                                     
                 
                                     <!-- password Feild -->
@@ -99,7 +92,7 @@
                                     </div>                                   
                                     
                                     <div class="mt-1">
-                                        <button matStepperNext class="btn btn-sm btn-light">Next</button>
+                                        <button matStepperNext class="btn btn-sm btn-light" (click)="validateFirstFormGroup()">Next</button>
                                     </div>
                                     </form>
                                 </mat-step>
@@ -110,13 +103,13 @@
                                     <ng-template matStepLabel>Fill out your company details</ng-template>
                                     <div class="mb-2 col-lg-6">
                                         <label for="full-name" class="form-label">Company name *</label>
-                                        <input type="text" class="form-control form-control-sm" id="full-name" placeholder="Type your full name..." formControlName="fullName">
+                                        <input type="text" class="form-control form-control-sm" id="full-name" placeholder="Type your company name..." formControlName="companyName">
                                     </div>
                 
                                     <!-- country(autocomplete/ng-bootstrap typehead) -->
                                     <div class="form-group col-lg-6 mb-2">
                                         <label for="country" class="form-label">Country *</label>
-                                        <input type="text" class="form-control form-control-sm" id="country" placeholder="Type country name..." aria-label="Country" formControlName="country" [ngbTypeahead]="search" [inputFormatter]="formatter" [resultFormatter]="formatter" (selectItem)="onItemSelect($event.item)">
+                                        <input type="text" class="form-control form-control-sm" id="country" placeholder="Type country name..." aria-label="Country" formControlName="country" [ngbTypeahead]="search" [inputFormatter]="formatter" [resultFormatter]="formatter">
                                       
                                         <ng-template #rt let-r="result" let-t="term">
                                           <ngb-highlight [result]="r" [term]="t"></ngb-highlight>
@@ -146,7 +139,7 @@
                                             </div>
                                         } @else {
                                             <div>
-                                                <button type="button" class="btn btn-primary btn-sm" (click)="fileInputLicense.click()">
+                                                <button type="button" class="btn btn-primary btn-sm" [ngClass]="{'btn-danger': secondFormGroup.get('companyLicenseFile')?.invalid && secondFormGroup.get('companyLicenseFile')?.touched}" (click)="fileInputLicense.click()">
                                                   <i class="bi bi-paperclip"></i> <!-- Using Bootstrap Icons for the paperclip icon -->
                                                   Select File
                                                 </button>
@@ -155,12 +148,6 @@
                                         }
                                     
                                         <input type="file" accept="image/png, image/jpeg, image/gif, application/pdf" #fileInputLicense style="display: none" (change)="onFileSelectedLicense($event)">
-                                        
-                                        @if (firstFormGroup.get('companyLicenseFile')?.invalid && firstFormGroup.get('companyLicenseFile')?.touched) {
-                                            <div>
-                                                File is required
-                                            </div>
-                                        }
                                     </div>
                 
                                     <!-- Checkbox for accepting terms and conditions -->
