@@ -11,12 +11,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
+import { SurveyComponent } from './survey/survey.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     HomeComponent,
-    DashboardNavbarComponent
+    DashboardNavbarComponent,
+    SurveyComponent
   ],
   imports: [
     CommonModule,
