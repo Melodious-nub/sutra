@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container-fluid">
     <div class="row no-gutter">
         <!-- The image half -->
@@ -86,7 +87,7 @@
                                             <i class="{{ hideC ? 'bi bi-eye-slash' : 'bi bi-eye' }}"></i>
                                           </button>
                                         </div>
-                                        <div *ngIf="firstFormGroup.hasError('passwordMismatch') && firstFormGroup.get('confirmPassword')?.touched" class="invalid-feedback">
+                                        <div *ngIf="firstFormGroup.get('passwordMismatch') && firstFormGroup.get('confirmPassword')?.touched" class="invalid-feedback">
                                           Passwords do not match
                                         </div>
                                     </div>                                   
