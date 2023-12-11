@@ -9,7 +9,6 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: 'home', component: HomeComponent},
-      // { path: 'group-chat', component: GroupChatComponent},
       { path: '', redirectTo: '/admin/home', pathMatch: 'full'},
     ],
   },

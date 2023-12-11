@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="sticky-toolbar">
+    <mat-toolbar-row class="shadow toolbar-main">
+      <a class="navbar-brand ms-2" type="button" (click)="goToHome()"><span><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" style="vertical-align: -5px;"></mat-icon></span> Sutra</a>
+      <button mat-button class="btn-text ms-4" (click)="toggle()">
+        Survey
+      </button>
+      <button mat-button class="btn-text">
+        Cap management
+      </button>
+      <button mat-button class="btn-text">
+        Reports
+      </button>
+      <!-- right side data -->
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </mat-toolbar-row>
+
+    @if (view) {
+        <mat-toolbar-row class="second-toolbar">
+            <button mat-button class="btn-text">
+              Company data
+            </button>
+            <span class="example-spacer"></span>
+        </mat-toolbar-row>
+    }
+</mat-toolbar>
