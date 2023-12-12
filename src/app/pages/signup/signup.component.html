@@ -131,8 +131,15 @@
                                         <input type="text" class="form-control form-control-sm" id="companyEmail" placeholder="Type country name..." formControlName="companyEmail">
                                     </div>
                 
+                                    <!-- company tin -->
+                                    <div class="mb-2 col-lg-6">
+                                        <label for="taxIdentificationNumber" class="form-label">Tax identification number *</label>
+                                        <input type="text" class="form-control form-control-sm" id="taxIdentificationNumber" placeholder="Type tin number..." formControlName="taxIdentificationNumber">
+                                    </div>
+
                                     <!-- Company license/tin/docs -->
-                                    <div class="mt-2 mb-3 col-lg-12">
+                                    <div class="mb-3 col-lg-6">
+                                        <label for="attachTin" class="form-label">Attach tin (pdf or image) *</label>
                                         @if (companyLicenseName) {
                                             <div class="input-group">
                                                 <input type="text" class="form-control form-control-sm" [value]="companyLicenseName" readonly required>
@@ -146,7 +153,7 @@
                                                   <i class="bi bi-paperclip"></i> <!-- Using Bootstrap Icons for the paperclip icon -->
                                                   Select File
                                                 </button>
-                                                <span style="font-size: 11px; padding-left: 8px;">Upload your company id card (img or pdf) *</span>
+                                                <!-- <span style="font-size: 11px; padding-left: 8px;">Upload your company id card (img or pdf) *</span> -->
                                             </div>
                                         }
                                     

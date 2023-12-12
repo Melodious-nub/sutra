@@ -79,6 +79,7 @@ export class SignupComponent implements OnInit {
       companyEmail: ['', [Validators.required, Validators.email]],
       companyLicenseFile: [null, Validators.required],
       termsAndCondition: [false, Validators.requiredTrue],
+      taxIdentificationNumber: ['', Validators.required],
     });
   }
 
@@ -158,7 +159,7 @@ export class SignupComponent implements OnInit {
     // for posting registration data model
     const formData = new FormData();
     let postBody = {
-      companyName: this.secondFormGroup.controls['companyName'].value, country: this.secondFormGroup.controls['country'].value, companyAddress: this.secondFormGroup.controls['companyAddress'].value, companyEmail: this.secondFormGroup.controls['companyEmail'].value, termsAndCondition: this.secondFormGroup.controls['termsAndCondition'].value, 
+      companyName: this.secondFormGroup.controls['companyName'].value, country: this.secondFormGroup.controls['country'].value, companyAddress: this.secondFormGroup.controls['companyAddress'].value, companyEmail: this.secondFormGroup.controls['companyEmail'].value, termsAndCondition: this.secondFormGroup.controls['termsAndCondition'].value, taxIdentificationNumber: this.secondFormGroup.controls['taxIdentificationNumber'].value,
       employees: [
         {
           name: this.firstFormGroup.controls['fullName'].value, email: this.firstFormGroup.controls['email'].value, designation: this.firstFormGroup.controls['designation'].value, password: this.firstFormGroup.controls['password'].value, confirmPassword: this.firstFormGroup.controls['confirmPassword'].value
@@ -198,7 +199,7 @@ export class SignupComponent implements OnInit {
       this.api.sendEmail(data).subscribe({
         next: (res: any) => {
           if (res.success === true) {
-            console.log(res);
+            // console.log(res);
             // this.toastr.success(res.message, 'Congratulation.');
           } else {
             // this.emailConfirmed = false;
