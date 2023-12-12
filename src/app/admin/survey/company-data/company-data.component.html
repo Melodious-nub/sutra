@@ -1,1 +1,32 @@
-<p>company-data works!</p>
+<div class="sidebar">
+    <ul class="list-unstyled ps-0 ms-3 mt-3 mb-3">
+        <!-- Company Data part -->
+        <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed">About</button>
+        </li>
+        <!-- General Data Part -->
+        <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed">General Data</button>
+        </li>
+        <!-- Department -->
+        <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0">Department</button>
+        </li>
+        <!-- Certificate and Audit Report -->
+        <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed">Certificate and Audit Report</button>
+        </li>
+        <!-- Customer part -->
+        <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed">Customer</button>
+        </li>
+        <!-- Supplier part -->
+        <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed">Supplier</button>
+        </li>
+    </ul>
+</div>
+
+<div class="content">
+    <router-outlet></router-outlet>
+</div>

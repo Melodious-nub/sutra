@@ -12,13 +12,15 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import { SurveyComponent } from './survey/survey.component';
+import { CompanyDataComponent } from './survey/company-data/company-data.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     HomeComponent,
     DashboardNavbarComponent,
-    SurveyComponent
+    SurveyComponent,
+    CompanyDataComponent
   ],
   imports: [
     CommonModule,

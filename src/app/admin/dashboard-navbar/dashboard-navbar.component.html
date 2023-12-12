@@ -1,28 +1,34 @@
 <mat-toolbar color="primary" class="sticky-toolbar">
-    <mat-toolbar-row class="shadow toolbar-main">
-      <a class="navbar-brand ms-2" type="button" (click)="goToHome()"><span><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" style="vertical-align: -5px;"></mat-icon></span> Sutra</a>
-      <button mat-button class="btn-text ms-4" (click)="toggle()">
-        Survey
-      </button>
-      <button mat-button class="btn-text">
-        Cap management
-      </button>
-      <button mat-button class="btn-text">
-        Reports
-      </button>
-      <!-- right side data -->
-      <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>account_circle</mat-icon>
-      </button>
-    </mat-toolbar-row>
+  <mat-toolbar-row class="shadow toolbar-main">
+    <!-- Brand -->
+    <a mat-button routerLink="/admin/home" routerLinkActive="active-link" class="me-3">
+      <mat-icon>home</mat-icon> Sutra
+    </a>
 
-    @if (view) {
-        <mat-toolbar-row class="second-toolbar">
-            <button mat-button class="btn-text" routerLink="survey">
-              Company data
-            </button>
-            <span class="example-spacer"></span>
-        </mat-toolbar-row>
-    }
+    <!-- Main Links for Desktop -->
+    <div class="navbar-links">
+      <button mat-button class="material-button" routerLink="/admin/profile/company-data" routerLinkActive="active-link" [class.active-link]="isSurveyRouteActive">Profile</button>
+      <button mat-button class="material-button" routerLink="/admin/cap" routerLinkActive="active-link">Cap Management</button>
+      <button mat-button class="material-button" routerLink="/admin/reports" routerLinkActive="active-link">Reports</button>
+    </div>
+
+    <!-- Right side data -->
+    <span class="example-spacer"></span>
+    <button mat-icon-button><mat-icon>account_circle</mat-icon></button>
+  </mat-toolbar-row>
+
+  <!-- Mobile Navigation -->
+  <mat-toolbar-row class="mobile-nav second-toolbar">
+    <button mat-button routerLink="/admin/profile/company-data" routerLinkActive="active-link">Profile</button>
+    <button mat-button routerLink="/admin/cap" routerLinkActive="active-link">Cap Management</button>
+    <button mat-button routerLink="/admin/reports" routerLinkActive="active-link">Reports</button>
+  </mat-toolbar-row>
+
+  <!-- Sub-Navbar for Survey -->
+  @if (isSurveyRouteActive) {
+    <mat-toolbar-row class="second-toolbar d-flex flex-wrap">
+      <button mat-button class="material-button" routerLink="/admin/profile/company-data" routerLinkActive="active-link">Company Data</button>
+      <span class="example-spacer"></span>
+    </mat-toolbar-row>
+  }
 </mat-toolbar>

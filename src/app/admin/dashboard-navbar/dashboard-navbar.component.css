@@ -13,6 +13,25 @@
     box-shadow: 0 3px 5px -1px #0003,0 6px 10px #00000024,0 1px 18px #0000001f !important;
 }
 
+/* .material-button {
+    font-size: 11px !important;
+} */
+
+.mat-mdc-button.material-button {
+    height: 26px;
+    border-radius: 5px;
+    --mdc-text-button-container-shape: 5px;
+    --mdc-text-button-container-height: 28px;
+}
+
+.material-button:hover {
+    background: rgba(0,0,0,.2);
+}
+
+.material-button.mdc-button {
+    font-size: 12px;
+}
+
 .mat-toolbar-multiple-rows {
     min-height: 0;
 }
@@ -34,3 +53,24 @@
     font-size: 16px;
     line-height: 24px;
 }
+
+.active-link {
+    /* font-weight: bold; */
+    background: rgba(0,0,0,.2);
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+    }
+    .mobile-nav {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .mobile-nav {
+      display: none;
+    }
+    }
