@@ -34,8 +34,7 @@ export class AuthService {
       map(res => {
         if (res.success === true && res.statusCode === 200) {
           this.token = res.data.token;
-          // this.setToken(this.token);
-          this.setToken("fgiehfedygf");
+          this.setToken(this.token);
           return res;
         } else {
           return res;

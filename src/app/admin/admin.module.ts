@@ -14,6 +14,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import { SurveyComponent } from './survey/survey.component';
 import { CompanyDataComponent } from './survey/company-data/company-data.component';
 import { AboutComponent } from './survey/company-data/about/about.component';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,12 @@ import { AboutComponent } from './survey/company-data/about/about.component';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule,
+    NgbTypeaheadModule,
   ]
 })
 export class AdminModule { }

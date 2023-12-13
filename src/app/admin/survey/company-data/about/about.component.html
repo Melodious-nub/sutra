@@ -1,1 +1,105 @@
-<p>about works!</p>
+<div class="container-fluid mt-2">
+    <form id="aboutForm" (ngSubmit)="onAboutSubmit()">
+        <div class="row">
+            <!-- company name field -->
+            <div class="col-md-3 mb-2">
+                <label for="companyName" class="form-label">Company name</label>
+                <input type="text" class="form-control form-control-sm" id="companyName" placeholder="Type company name..." [(ngModel)]="aboutForm.companyName" name="companyName">
+            </div>
+
+            <!-- country(autocomplete/ng-bootstrap typehead) -->
+            <div class="form-group col-md-3 mb-2">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" class="form-control form-control-sm" id="country" placeholder="Type country name..." aria-label="Country" [ngbTypeahead]="search" [inputFormatter]="formatter" [resultFormatter]="formatter" [(ngModel)]="aboutForm.country" name="country">
+              
+                <ng-template #rt let-r="result" let-t="term">
+                  <ngb-highlight [result]="r" [term]="t"></ngb-highlight>
+                </ng-template>
+            </div>
+
+            <!-- address field -->
+            <div class="col-md-3 mb-2">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control form-control-sm" id="address" placeholder="Street, City, State, Zip" [(ngModel)]="aboutForm.address" name="address">
+            </div>
+            
+            <!-- contact -->
+            <div class="col-md-3 mb-2">
+                <label for="contactNumber" class="form-label">Contact number</label>
+                <input type="text" class="form-control form-control-sm" id="contactNumber" placeholder="Type contact number..." [(ngModel)]="aboutForm.contactNumber" name="contactNumber">
+            </div>
+
+            <!-- fax no. field -->
+            <div class="col-md-4 mb-2">
+                <label for="faxNumber" class="form-label">Fax number</label>
+                <input type="text" class="form-control form-control-sm" id="faxNumber" placeholder="Type fax number..." [(ngModel)]="aboutForm.faxNumber" name="faxNumber">
+            </div>
+            
+            <!-- Email address field -->
+            <div class="col-md-4 mb-2">
+                <label for="email" class="form-label">Email address</label>
+                <input type="text" class="form-control form-control-sm" id="email" placeholder="Type email address..." [(ngModel)]="aboutForm.email" name="email">
+            </div>
+            
+            <!-- Website field -->
+            <div class="col-md-4 mb-2">
+                <label for="companyWebsite" class="form-label">Company website</label>
+                <input type="text" class="form-control form-control-sm" id="companyWebsite" placeholder="Type company website..." [(ngModel)]="aboutForm.websiteUrl" name="websiteUrl">
+            </div>
+
+            <!-- horizontal line -->
+            <hr class="my-4">
+            <!-- end hr -->
+            
+            <!-- company vision field -->
+            <div class="col-md-4 mb-2">
+                <label for="companyVision" class="form-label">Company vision</label>
+                <textarea class="form-control form-control-sm" id="companyVision" rows="2" placeholder="Maximum 500 characters" [(ngModel)]="aboutForm.companyVision" name="companyVision"></textarea>
+            </div>
+
+            <!-- company missioon field -->
+            <div class="col-md-4 mb-2">
+                <label for="companyMission" class="form-label">Company mission</label>
+                <textarea class="form-control form-control-sm" id="companyMission" rows="2" placeholder="Maximum 500 characters" [(ngModel)]="aboutForm.companyMission" name="companyMission"></textarea>
+            </div>
+            
+            <!-- company highlights field -->
+            <div class="col-md-4 mb-2">
+                <label for="companyHighlights" class="form-label">Company highlights</label>
+                <textarea class="form-control form-control-sm" id="companyHighlights" rows="2" placeholder="Maximum 500 characters" [(ngModel)]="aboutForm.companyHighlights" name="companyHighlights"></textarea>
+            </div>
+
+            <!-- unit radio belonging the group of company -->
+            <div class="d-flex flex-row mt-1">
+                <div class="form-check-inline">
+                    <label class="mb-1 form-label me-3">Belonging to any group of companies?</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="btnradio1" [value]="true" [(ngModel)]="isVisible" name="isVisible" type="radio">
+                    <label class="form-check-label" for="btnradio1"><span>Yes</span></label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" id="btnradio2" [value]="false" [(ngModel)]="isVisible" name="isVisible" type="radio">
+                    <label class="form-check-label" for="btnradio2"><span>No</span></label>
+                </div>
+            </div>
+            
+            <!-- unit radio end -->
+            <div class="col-md-12 mt-1 center" [hidden]="!(isVisible == true)">
+                <label for="belongingToGroupOfCompanies" class="form-label">Name of the group</label>
+                <input type="text" class="form-control form-control-sm" id="belongingToGroupOfCompanies" placeholder="Type the name of the group..." [(ngModel)]="aboutForm.belongingToGroupOfCompanies" name="belongingToGroupOfCompanies">
+            </div>
+            <!--radio belonging the group of company -->
+
+            <!-- horizontal line -->
+            <hr class="my-4">
+            <!-- <div class="mb-2"></div> -->
+            <!-- end hr -->            
+
+            <!-- button save -->
+            <div class="text-end mt-2">
+                <button class="btn b-info btn-primary" type="submit" name="save">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

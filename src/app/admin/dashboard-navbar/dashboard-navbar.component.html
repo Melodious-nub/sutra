@@ -7,7 +7,7 @@
 
     <!-- Main Links for Desktop -->
     <div class="navbar-links">
-      <button mat-button class="material-button" routerLink="/admin/profile/company-data" routerLinkActive="active-link" [class.active-link]="isSurveyRouteActive">Profile</button>
+      <button mat-button class="material-button" routerLink="/admin/profile/company-data/about" routerLinkActive="active-link" [class.active-link]="isSurveyRouteActive">Profile</button>
       <button mat-button class="material-button" routerLink="/admin/cap" routerLinkActive="active-link">Cap Management</button>
       <button mat-button class="material-button" routerLink="/admin/reports" routerLinkActive="active-link">Reports</button>
     </div>
@@ -19,7 +19,7 @@
 
   <!-- Mobile Navigation -->
   <mat-toolbar-row class="mobile-nav second-toolbar">
-    <button mat-button routerLink="/admin/profile/company-data" routerLinkActive="active-link">Profile</button>
+    <button mat-button routerLink="/admin/profile/company-data/about" routerLinkActive="active-link">Profile</button>
     <button mat-button routerLink="/admin/cap" routerLinkActive="active-link">Cap Management</button>
     <button mat-button routerLink="/admin/reports" routerLinkActive="active-link">Reports</button>
   </mat-toolbar-row>
@@ -27,7 +27,7 @@
   <!-- Sub-Navbar for Survey -->
   @if (isSurveyRouteActive) {
     <mat-toolbar-row class="second-toolbar d-flex flex-wrap">
-      <button mat-button class="material-button" routerLink="/admin/profile/company-data" routerLinkActive="active-link">Company Data</button>
+      <button mat-button class="material-button" routerLink="/admin/profile/company-data/about" routerLinkActive="active-link">Company Data</button>
       <span class="example-spacer"></span>
     </mat-toolbar-row>
   }
