@@ -119,16 +119,16 @@ button {
 /* Side nav */
 
 .sidebar {
-    margin: 0;
+    margin-top: 0;
     padding: 0;
-    width: 220px;
+    width: 210px;
     background-color: #F7F7F7;
     position: fixed;
-    height: 92%;
+    /* height: 92%; */
     overflow: auto;
     left: 0px;
     top: 90px;
-    border-right: 1px solid rgba(0, 0, 0, .12);
+    /* border-right: 1px solid rgba(0, 0, 0, .12); */
 }
 
 .sidebar a {
@@ -139,8 +139,8 @@ button {
 }
 
 div.content {
-    /* margin-left: 220px; */
-    padding: 1px 16px;
+    margin-left: 210px;
+    padding: 5px 10px;
     height: auto;
     background: #FFFFFF;
 }

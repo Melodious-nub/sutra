@@ -5,7 +5,7 @@
 .sticky-toolbar {
     position: sticky;
     top: 0; /* Adjust this value based on your needs */
-    z-index: 1000; /* Ensures the toolbar stays on top of other elements */
+    z-index: 1000 !important; /* Ensures the toolbar stays on top of other elements */
 }
 
 .shadow {
