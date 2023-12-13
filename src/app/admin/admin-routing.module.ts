@@ -4,13 +4,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { SurveyComponent } from './survey/survey.component';
 import { CompanyDataComponent } from './survey/company-data/company-data.component';
+import { AboutComponent } from './survey/company-data/about/about.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, children: [
     { path: 'home', component: HomeComponent},
     { path: 'profile', component: SurveyComponent, children: [
       { path: 'company-data', component: CompanyDataComponent, children: [
-        
+        { path: 'about', component: AboutComponent },
       ]},
     ]},
     // { path: 'cap', component: CapComponent },

@@ -13,6 +13,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import { SurveyComponent } from './survey/survey.component';
 import { CompanyDataComponent } from './survey/company-data/company-data.component';
+import { AboutComponent } from './survey/company-data/about/about.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CompanyDataComponent } from './survey/company-data/company-data.compone
     HomeComponent,
     DashboardNavbarComponent,
     SurveyComponent,
-    CompanyDataComponent
+    CompanyDataComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,
