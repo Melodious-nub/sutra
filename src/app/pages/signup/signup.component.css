@@ -139,3 +139,7 @@ mat-form-field {
     font-size: 10px;
     margin: 0 0 1px;
 }
+
+.form-control-sm::placeholder {
+    font-size: 12px;
+}
