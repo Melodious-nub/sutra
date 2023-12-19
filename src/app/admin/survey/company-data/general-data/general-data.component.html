@@ -1,0 +1,112 @@
+<div class="container-fluid mt-2">
+    <form id="generaldataForm" (ngSubmit)="onGeneralDataSubmit()">
+        <div class="row">
+          <!-- header text section 1 -->
+            <label class="text-center mb-3 header-text">Type of company</label>
+            <!-- types of company ui radio box & adding functions -->
+            <div class="col-md-12 text-center">
+                  <div class="form-check form-check-inline mb-2">
+                    <input class="form-check-input" type="radio" [(ngModel)]="generalData.typeOfCompany" name="typeOfCompany" id="sole" [value]="1">
+                    <label class="form-check-label" for="sole"><span>Sole proprietorship</span></label>
+                  </div>
+                  <div class="form-check form-check-inline mb-2">
+                    <input class="form-check-input" type="radio" [(ngModel)]="generalData.typeOfCompany" name="typeOfCompany" id="Partnership" [value]="2">
+                    <label class="form-check-label" for="Partnership">Partnership</label>
+                  </div>
+                  <div class="form-check form-check-inline mb-2">
+                    <input class="form-check-input" type="radio" [(ngModel)]="generalData.typeOfCompany" name="typeOfCompany" id="private_limited" [value]="3">
+                    <label class="form-check-label" for="private_limited">Private Limited</label>
+                  </div>
+                  <div class="form-check form-check-inline mb-2">
+                    <input class="form-check-input" type="radio" [(ngModel)]="generalData.typeOfCompany" name="typeOfCompany" id="public_limited" [value]="4">
+                    <label class="form-check-label" for="public_limited">Public limited</label>
+                  </div>
+                  <div class="form-check form-check-inline mb-2">
+                    <input class="form-check-input" type="radio" [(ngModel)]="generalData.typeOfCompany" name="typeOfCompany" id="others" [value]="5">
+                    <label class="form-check-label" for="others">
+                        <span>Others</span>
+                        <span class="ms-2" *ngIf="generalData.typeOfCompany === 5"><input type="text" [(ngModel)]="generalData.typeOfOthers" name="typeOfOthers" placeholder="Please specify"></span>
+                    </label>
+                  </div>                                           
+            </div>
+            
+            <!-- Table that appears conditionally -->
+            <div *ngIf="generalData.typeOfCompany !== 1">
+              <div class="row" *ngFor="let partner of generalData.listOfPartner; let i = index">
+                <!-- Name of investor field -->
+                <div class="mb-2 col-md-4">
+                  <label for="investorName" class="form-label">Name of Investors/Shareholders</label>
+                  <input type="text" class="form-control form-control-sm" [(ngModel)]="partner.investorName" name="investorName{{i}}" id="investorName" placeholder="Type name of investor...">
+                </div>
+                <!-- ng-bootstrap typehead Origin name -->
+                <div class="mb-2 col-md-4">
+                  <label for="originOfInvestor" class="form-label">Origin of investors/shareholders</label>
+                  <input type="text" class="form-control form-control-sm" id="originOfInvestor" placeholder="Type origin name..." aria-label="originOfInvestor" [ngbTypeahead]="search" [inputFormatter]="formatter" [resultFormatter]="formatter" [(ngModel)]="partner.originOfInvestor" name="originOfInvestor{{i}}">
+                
+                  <ng-template #rt let-r="result" let-t="term">
+                    <ngb-highlight [result]="r" [term]="t"></ngb-highlight>
+                  </ng-template>
+                </div>
+                <!-- percentage of share input field -->
+                <div class="mb-2 col-md-3">
+                  <label for="percentageOfShare" class="form-label">Percentage of Share(%)</label>
+                  <input type="number" class="form-control form-control-sm" [(ngModel)]="partner.percentageOfShare" name="percentageOfShare{{i}}" id="percentageOfShare" placeholder="Enter Percentage">
+                </div>
+                <!-- Add/Delete Buttons -->
+                <div class="mb-2 col-md-1">
+                  <div style="height: 28px;"></div>
+                  <button type="button" class="btn btn-primary btn-sm me-1" (click)="addPartnerList()" *ngIf="i === generalData.listOfPartner.length - 1" [disabled]="isTotalPercentageExceeded()" placement="start" ngbTooltip="Be sure not to exceed 'Percentage of share' more than 100%.">
+                    <i class="bi bi-plus-circle"></i>
+                  </button>
+                  <button type="button" class="btn btn-danger btn-sm" (click)="removePartnerList(i)" *ngIf="generalData.listOfPartner.length > 1">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </div>            
+              </div>
+              <!-- Message for total percentage exceeded -->
+              <div *ngIf="isTotalPercentageExceeded()" class="alert alert-warning">
+                <i class="bi bi-exclamation-square pe-2"></i>The total percentage of shares cannot exceed <strong>100%.</strong>
+              </div>                
+            </div>            
+        </div>
+        <!-- end section type of company -->
+
+        <!-- horizontal line -->
+        <hr class="my-4">
+        <!-- <div class="mb-2"></div> -->
+        <!-- end hr -->
+
+        <div class="row">
+          <label class="text-center mb-3 header-text">Company Details</label>
+          <!-- year of fundation input -->
+          <div class="mb-2 col-md-4">
+            <label for="yearOfFundation" class="form-label">Year of foundation</label>
+            <input type="number" class="form-control form-control-sm" [(ngModel)]="generalData.yearOfFundation" name="yearOfFundation" id="yearOfFundation" placeholder="Type year of foundation...">
+          </div>
+          <!-- Economic input checkbox of multiple with show value on input -->
+          <div ngbDropdown class="mb-2 col-md-8 d-inline-block">
+            <label for="economicSector" class="form-label">Economic sector</label>
+            <input type="text" class="form-control form-control-sm" ngbDropdownToggle
+            id="dropdownMenuButton" placeholder="Click input field for dropdown selections" [value]="selectedOptionsText" readonly>
+            
+            <div ngbDropdownMenu aria-labelledby="dropdownMenuButton" class="px-3" style="max-width: 95%; min-width: 40%;">
+              <div *ngFor="let option of economicCheckOptions; let i = index" class="form-check">
+                <input type="checkbox" class="form-check-input" id="checkbox{{i}}" (change)="updateSelectedOptions(option, $event)">
+                <label class="form-check-label" for="checkbox{{i}}" style="font-size: 13px; font-weight: 400;">{{ option }}</label>
+              </div>
+            </div>                        
+          </div>
+          <!-- ending economic dropdown functionality -->
+        </div>
+
+        <!-- horizontal line -->
+        <hr class="my-4">
+        <!-- <div class="mb-2"></div> -->
+        <!-- end hr -->
+        
+        <div class="row">
+          <label class="text-center mb-3 header-text">Please upload the legal documents required for your company</label>
+        </div>
+        
+    </form>
+</div>

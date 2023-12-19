@@ -53,41 +53,41 @@
             
             <!-- company vision field -->
             <div class="col-md-4 mb-2">
-                <label for="companyVision" class="form-label">Company vision</label>
-                <textarea class="form-control form-control-sm" id="companyVision" rows="2" placeholder="Maximum 500 characters" [(ngModel)]="aboutForm.companyVision" name="companyVision"></textarea>
+                <label for="vision" class="form-label">Company vision</label>
+                <textarea class="form-control form-control-sm" id="vision" rows="2" placeholder="Maximum 500 characters" [(ngModel)]="aboutForm.vision" name="vision"></textarea>
             </div>
 
             <!-- company missioon field -->
             <div class="col-md-4 mb-2">
-                <label for="companyMission" class="form-label">Company mission</label>
-                <textarea class="form-control form-control-sm" id="companyMission" rows="2" placeholder="Maximum 500 characters" [(ngModel)]="aboutForm.companyMission" name="companyMission"></textarea>
+                <label for="mission" class="form-label">Company mission</label>
+                <textarea class="form-control form-control-sm" id="mission" rows="2" placeholder="Maximum 500 characters" [(ngModel)]="aboutForm.mission" name="mission"></textarea>
             </div>
             
             <!-- company highlights field -->
             <div class="col-md-4 mb-2">
-                <label for="companyHighlights" class="form-label">Company highlights</label>
-                <textarea class="form-control form-control-sm" id="companyHighlights" rows="2" placeholder="Maximum 500 characters" [(ngModel)]="aboutForm.companyHighlights" name="companyHighlights"></textarea>
+                <label for="highLight" class="form-label">Company highlights</label>
+                <textarea class="form-control form-control-sm" id="highLight" rows="2" placeholder="Maximum 500 characters" [(ngModel)]="aboutForm.highLight" name="highLight"></textarea>
             </div>
 
             <!-- unit radio belonging the group of company -->
-            <div class="d-flex flex-row mt-2">
-                <div class="form-check-inline">
+            <div class="d-flex flex-column flex-md-row align-items-md-center mt-2">
+                <div class="mb-1 mb-md-0 form-check-inline">
                     <label class="mb-1 form-label me-3">Belonging to any group of companies?</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" id="btnradio1" [value]="true" [(ngModel)]="isVisible" name="isVisible" type="radio">
+                    <input class="form-check-input" id="btnradio1" [value]="true" [(ngModel)]="aboutForm.anyGroupOfCompanyExists" name="anyGroupOfCompanyExists" type="radio">
                     <label class="form-check-label" for="btnradio1"><span>Yes</span></label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" id="btnradio2" [value]="false" [(ngModel)]="isVisible" name="isVisible" type="radio">
+                    <input class="form-check-input" id="btnradio2" [value]="false" [(ngModel)]="aboutForm.anyGroupOfCompanyExists" name="anyGroupOfCompanyExists" type="radio">
                     <label class="form-check-label" for="btnradio2"><span>No</span></label>
                 </div>
             </div>
             
             <!-- unit radio end -->
-            <div class="col-md-12 mt-1 center" [hidden]="!(isVisible == true)">
-                <label for="belongingToGroupOfCompanies" class="form-label">Name of the group</label>
-                <input type="text" class="form-control form-control-sm" id="belongingToGroupOfCompanies" placeholder="Type the name of the group..." [(ngModel)]="aboutForm.belongingToGroupOfCompanies" name="belongingToGroupOfCompanies">
+            <div class="col-md-12 mt-1 center" [hidden]="!(aboutForm.anyGroupOfCompanyExists == true)">
+                <label for="belongingGroupName" class="form-label">Name of the group</label>
+                <input type="text" class="form-control form-control-sm" id="belongingGroupName" placeholder="Type the name of the group..." [(ngModel)]="aboutForm.belongingGroupName" name="belongingGroupName">
             </div>
             <!--radio belonging the group of company -->
 
@@ -96,13 +96,92 @@
             <!-- end hr -->
 
             <!-- upload company photos -->
-            <label for="companyPhotos" class="text-center mb-2" style="font-size: 14px; font-weight: 500;">Upload photos of your company front gate</label>
-            <div class="col-md-12 mx-auto" style="width: 75%;">
-                <p class="text-center" style="line-height: 8px; font-size: 12px; margin-bottom: 5px;"> *Image files are allowed</p>
+            <label for="companyPhotos" class="text-start mb-2 form-label">Upload photos of your company front gate</label>
+            <div class="col-md-12">
+                <div>
+                    <input class="form-control form-control-sm" style="display: none;" id="companyPhotos" type="file" (change)="onGateFilesSelected($event)" #fileInput multiple accept="image/*">
+                    <button type="button" class="btn btn-primary btn-sm me-1" (click)="fileInput.click()">
+                        <i class="bi bi-paperclip"></i> <!-- Using Bootstrap Icons for the paperclip icon -->
+                        Select File
+                    </button>
+                    @if (companyFrontGateImages.length == 0) {
+                        <span style="font-size: 11px; padding-left: 8px;">Upload your company front gate pictures(multiple img files are allowed) *</span>
+                    }
+                    @for (file of companyFrontGateImages; track $index) {
+                        <span style="font-size: 12px; padding-left: 8px; font-weight: 400;">
+                            {{$index+1+'. '}}{{ file.name }}
+                            <a type="button" style="color: red; font-weight: 500; padding: 3px;" (click)="removeGateFile($index)"><i class="bi bi-x-lg"></i></a>
+                        </span>
+                    }
+                </div>
+                <!-- <div class="card float-start m-2" *ngFor="let fp of files; let i = index">
+                    <img [src]="fp.fileUrl" class="card-img-top img-thumbnail rounded">
+                    <div class="d-flex justify-content-evenly">
+                        <a type="button" [href]="fp.fileUrl" style="color: #227A7B;"><i class="fa-solid fa-download"></i></a>
+                        <a type="button" (click)="removeImage(fp)" style="color: #ff4081;"><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div> -->
             </div>
 
+            <!-- horizontal line -->
+            <hr class="my-4">
+            <!-- end hr -->
+
+            <!-- unit radio belonging the group of company -->
+            <div class="d-flex flex-column flex-md-row align-items-md-center">
+                <div class="mb-1 mb-md-0 form-check-inline">
+                    <label class="mb-1 form-label me-3">Are you a member of any association or foundation or initiative?</label>
+                </div>
+                <div class="d-flex flex-row">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="memberOfAnyAssociation" [value]="true" [(ngModel)]="aboutForm.memberOfAnyAssociation" name="memberOfAnyAssociation" type="radio">
+                        <label class="form-check-label" for="memberOfAnyAssociation"><span>Yes</span></label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="memberOfAnyAssociation2" [value]="false" [(ngModel)]="aboutForm.memberOfAnyAssociation" name="memberOfAnyAssociation" type="radio">
+                        <label class="form-check-label" for="memberOfAnyAssociation2"><span>No</span></label>
+                    </div>
+                </div>
+            </div>          
+            
+            <!-- unit radio end -->
+            <div class="col-md-12 mt-2" [hidden]="!(aboutForm.memberOfAnyAssociation == true)">
+                <!-- membership input form -->
+                <div *ngFor="let membership of aboutForm.membership; let i = index" class="row mb-2">
+                    <!-- Membership Name -->
+                    <div class="col-md-4">
+                        <label class="form-label">Membership name</label>
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="aboutForm.membership[i].membershipName" name="membershipName{{i}}" placeholder="Type membership name..">
+                    </div>
+                    
+                    <!-- Since Member -->
+                    <div class="col-md-4">
+                        <label class="form-label">Membership since</label>
+                        <input type="date" class="form-control form-control-sm" [(ngModel)]="aboutForm.membership[i].sinceMembership" name="sinceMembership{{i}}">
+                    </div>
+                    
+                    <!-- Membership File -->
+                    <div class="col-md-3">
+                        <label class="form-label">Membership certicifate(img/pdf  are allowed)</label>
+                        <input type="file" class="form-control form-control-sm" (change)="onMemberFileSelected($event, i)" multiple accept="image/*,application/pdf">
+                    </div>
+                    
+                    <!-- Add/Delete Buttons -->
+                    <div class="col-md-1">
+                        <div style="height: 28px;"></div>
+                        <button type="button" class="btn btn-primary btn-sm me-1" (click)="addMembership()" *ngIf="i === aboutForm.membership.length - 1">
+                        <i class="bi bi-plus-circle"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="removeMembership(i)" *ngIf="aboutForm.membership.length > 1">
+                        <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>                
+            </div>
+            <!--radio belonging the group of company -->             
+
             <!-- button save -->
-            <div class="text-end mt-2">
+            <div class="text-end mt-4">
                 <button class="btn b-info btn-primary" type="submit" name="save">Save</button>
             </div>
         </div>

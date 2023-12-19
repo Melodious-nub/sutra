@@ -5,13 +5,21 @@ import { HomeComponent } from './home/home.component';
 import { SurveyComponent } from './survey/survey.component';
 import { CompanyDataComponent } from './survey/company-data/company-data.component';
 import { AboutComponent } from './survey/company-data/about/about.component';
+import { ProductComponent } from './survey/product/product.component';
+import { ProductTypeComponent } from './survey/product/product-type/product-type.component';
+import { GeneralDataComponent } from './survey/company-data/general-data/general-data.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, children: [
     { path: 'home', component: HomeComponent},
+    // profile route with survey
     { path: 'profile', component: SurveyComponent, children: [
       { path: 'company-data', component: CompanyDataComponent, children: [
         { path: 'about', component: AboutComponent },
+        { path: 'general-data', component: GeneralDataComponent },
+      ]},
+      { path: 'product', component: ProductComponent, children: [
+        { path: 'product-type', component: ProductTypeComponent },
       ]},
     ]},
     // { path: 'cap', component: CapComponent },

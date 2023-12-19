@@ -17,6 +17,9 @@ import { AboutComponent } from './survey/company-data/about/about.component';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductComponent } from './survey/product/product.component';
+import { ProductTypeComponent } from './survey/product/product-type/product-type.component';
+import { GeneralDataComponent } from './survey/company-data/general-data/general-data.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { NgbModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
     DashboardNavbarComponent,
     SurveyComponent,
     CompanyDataComponent,
-    AboutComponent
+    AboutComponent,
+    ProductComponent,
+    ProductTypeComponent,
+    GeneralDataComponent
   ],
   imports: [
     CommonModule,

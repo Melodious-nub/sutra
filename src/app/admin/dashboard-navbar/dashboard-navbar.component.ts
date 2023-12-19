@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard-navbar',
@@ -10,7 +11,7 @@ import { filter } from 'rxjs/operators';
 export class DashboardNavbarComponent implements OnInit {
   isSurveyRouteActive = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private auth: AuthService) {}
 
   ngOnInit() {
     this.checkIfProfileIsActive(this.router.url);
@@ -25,6 +26,14 @@ export class DashboardNavbarComponent implements OnInit {
   private checkIfProfileIsActive(url: string) {
     // Check if the URL contains the 'survey' segment
     this.isSurveyRouteActive = url.includes('/admin/profile');
+  }
+
+  goAbout() {
+    this.router.navigate(['/admin/profile/company-data/about'])
+  }
+
+  logout(): void {    
+    this.auth.logout();
   }
 
 }

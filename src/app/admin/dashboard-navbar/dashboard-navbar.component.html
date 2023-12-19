@@ -1,34 +1,62 @@
-<mat-toolbar color="primary" class="sticky-toolbar">
+<mat-toolbar color="primary" class="sticky-top">
   <mat-toolbar-row class="shadow toolbar-main">
     <!-- Brand -->
-    <a mat-button routerLink="/admin/home" routerLinkActive="active-link" class="me-3">
+    <button mat-button routerLink="/admin/home" routerLinkActive="active-link" class="me-3">
       <mat-icon>home</mat-icon> Sutra
-    </a>
+    </button>
 
     <!-- Main Links for Desktop -->
     <div class="navbar-links">
-      <button mat-button class="material-button" routerLink="/admin/profile/company-data/about" routerLinkActive="active-link" [class.active-link]="isSurveyRouteActive">Profile</button>
+      <button mat-button class="material-button" (click)="goAbout()" routerLinkActive="active-link" [class.active-link]="isSurveyRouteActive">Profile</button>
       <button mat-button class="material-button" routerLink="/admin/cap" routerLinkActive="active-link">Cap Management</button>
       <button mat-button class="material-button" routerLink="/admin/reports" routerLinkActive="active-link">Reports</button>
     </div>
 
     <!-- Right side data -->
     <span class="example-spacer"></span>
-    <button mat-icon-button><mat-icon>account_circle</mat-icon></button>
+    <!-- <button mat-icon-button><mat-icon>account_circle</mat-icon></button> -->
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <!-- mat-menu item-1 -->
+      <button mat-menu-item type="button" data-bs-toggle="modal" data-bs-target="#logoutModal">
+        <mat-icon color="accent">power_settings_new</mat-icon><span>Logout</span>
+      </button>
+    </mat-menu>
   </mat-toolbar-row>
 
   <!-- Mobile Navigation -->
-  <mat-toolbar-row class="mobile-nav second-toolbar">
-    <button mat-button routerLink="/admin/profile/company-data/about" routerLinkActive="active-link">Profile</button>
-    <button mat-button routerLink="/admin/cap" routerLinkActive="active-link">Cap Management</button>
-    <button mat-button routerLink="/admin/reports" routerLinkActive="active-link">Reports</button>
+  <mat-toolbar-row class="mobile-nav second-toolbar shadow">
+    <button mat-button class="material-button" (click)="goAbout()" routerLinkActive="active-link" [class.active-link]="isSurveyRouteActive">Profile</button>
+    <button mat-button class="material-button" routerLink="/admin/cap" routerLinkActive="active-link">Cap Management</button>
+    <button mat-button class="material-button" routerLink="/admin/reports" routerLinkActive="active-link">Reports</button>
   </mat-toolbar-row>
 
   <!-- Sub-Navbar for Survey -->
   @if (isSurveyRouteActive) {
     <mat-toolbar-row class="second-toolbar d-flex flex-wrap">
-      <button mat-button class="material-button" routerLink="/admin/profile/company-data/about" routerLinkActive="active-link">Company Data</button>
-      <span class="example-spacer"></span>
+      <button mat-button class="material-button" routerLink="/admin/profile/company-data" (click)="goAbout()" routerLinkActive="active-link">Company Data</button>
+      <button mat-button class="material-button" routerLink="/admin/profile/product" routerLinkActive="active-link">Product</button>
     </mat-toolbar-row>
   }
 </mat-toolbar>
+
+<!-- modal for logout -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h1 class="modal-title fs-5" id="logoutModalLabel">Logout</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Are you sure to logout?
+          </div>
+          <div class="modal-footer">
+              <button type="button" data-bs-dismiss="modal" class="btn btn-sm btn-light">Close</button>
+              <button type="button" data-bs-dismiss="modal" class="ms-2 btn btn-sm btn-danger" (click)="logout()">Logout</button>
+          </div>
+      </div>
+  </div>
+</div>

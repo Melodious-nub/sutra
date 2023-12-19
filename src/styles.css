@@ -35,3 +35,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .form-control-sm::placeholder {
   font-size: 12px;
 }
+
+.btn-sm {
+  --bs-btn-padding-y: .25rem;
+  --bs-btn-padding-x: .5rem; 
+  --bs-btn-font-size: .75rem;
+}
+
+.form-label {
+  display: block; /* or inline-block */
+  max-width: 100%; /* Adjust the width as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: .4rem;
+}
+
+.modal-title {
+  margin: 0 !important;
+}
+
+.header-text {
+  font-size: 15px;
+  font-weight: 500;
+}

@@ -25,6 +25,8 @@ import { AccountConfirmationComponent } from './pages/account-confirmation/accou
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { ToastrModule } from 'ngx-toastr';
 import {MatCardModule} from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,9 @@ import {MatCardModule} from '@angular/material/card';
     }),
     MatCardModule,
     NgbTypeaheadModule,
+    MatProgressBarModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
   ],
   providers: [
     provideHttpClient(withFetch()),

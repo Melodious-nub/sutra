@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable, debounceTime, distinctUntilChanged, map } from 'rxjs';
+import { DataService } from '../../../../services/data.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 interface AboutForm {
   companyName: string | null;
   country: string | null;
@@ -8,10 +11,15 @@ interface AboutForm {
   faxNumber: string | null;
   email: string | null;
   websiteUrl: string | null;
-  companyVision: string | null;
-  companyMission: string | null;
-  companyHighlights: string | null;
-  belongingToGroupOfCompanies: string | null;
+  vision: string | null;
+  mission: string | null;
+  highLight: string | null;
+  anyGroupOfCompanyExists: boolean | null;
+  memberOfAnyAssociation: boolean | null;
+  belongingGroupName: string | null;
+  membership: [
+    { membershipName: string | null, sinceMembership: string | null }
+  ];
 }
 
 @Component({
@@ -29,37 +37,26 @@ export class AboutComponent {
     faxNumber: null,
     email: null,
     websiteUrl: null,
-    companyVision: null,
-    companyMission: null,
-    companyHighlights: null,
-    belongingToGroupOfCompanies: null,
+    vision: null,
+    mission: null,
+    highLight: null,
+    anyGroupOfCompanyExists: false,
+    memberOfAnyAssociation: false,
+    belongingGroupName: null,
+    membership: [
+      { membershipName: '', sinceMembership: '' }
+    ]
   };
-  isVisible: boolean = false;
+  companyFrontGateImages: File[] = [];
+  memberShipFile: File[] = [];
 
   // options are contain 195 country names on string array
-  options: string[] = [
-    'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria',
-    'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan',
-    'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia',
-    'Cameroon', 'Canada', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo, Democratic Republic of the', 'Congo, Republic of the',
-    'Costa Rica', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor (Timor-Leste)',
-    'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia', 'Fiji', 'Finland',
-    'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea',
-    'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq',
-    'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'North Korea',
-    'South Korea', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya',
-    'Liechtenstein', 'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands',
-    'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique',
-    'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Macedonia',
-    'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines',
-    'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa',
-    'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia',
-    'Solomon Islands', 'Somalia', 'South Africa', 'Spain', 'Sri Lanka', 'Sudan', 'Sudan, South', 'Suriname', 'Sweden', 'Switzerland',
-    'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey',
-    'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu',
-    'Vatican City', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'
-  ];
+  options: string[] = [];
 
+  constructor(private api: DataService, private router: Router, private toastr: ToastrService,) {
+    this.options = this.api.options;
+   }
+  
   // typehead method
   search = (text$: Observable<string>) => 
     text$.pipe(
@@ -70,8 +67,88 @@ export class AboutComponent {
 
   formatter = (result: string) => result;
 
+  // multiple file uplaoad for company gate
+  onGateFilesSelected(event: Event) {
+    const element = event.currentTarget as HTMLInputElement;
+    let fileList: FileList | null = element.files;
+    if (fileList) {
+      for (let i = 0; i < fileList.length; i++) {
+        const file = fileList[i];
+        if (file.type.match(/image\/*/)) {
+          this.companyFrontGateImages.push(file);
+        } else {
+          alert('Only image files are allowed.');
+        }
+      }
+    }
+  }
+
+  // for removing files
+  removeGateFile(index: number) {
+    this.companyFrontGateImages.splice(index, 1);
+  }
+
+  // for adding membership
+  addMembership(): void {
+    this.aboutForm.membership.push({ membershipName: '', sinceMembership: '' });
+  }
+
+  // for removing membership
+  removeMembership(index: number): void {
+    if (index > -1 && this.aboutForm.membership.length > 1) {
+      this.aboutForm.membership.splice(index, 1);
+      this.memberShipFile.splice(index, 1);
+    }
+  }
+
+  // membership file handle
+  onMemberFileSelected(event: any, index: number): void {
+    const element = event.currentTarget as HTMLInputElement;
+    let fileList: FileList | null = element.files;
+    if (fileList) {
+      for (let i = 0; i < fileList.length; i++) {
+        const file = fileList[i];
+        if (file.type.match(/image\/*/) || file.type === 'application/pdf') {
+          this.memberShipFile.push(file);
+        } else {
+          alert('Only image files and PDFs are allowed.');
+        }
+      }
+    }
+  }
+
   onAboutSubmit() {
-    console.log(this.aboutForm);
+    const formData = new FormData();
+
+    // for multiple file upload front gate image
+    for (let i = 0; i < this.companyFrontGateImages.length; i++) {
+      formData.append("FrontGatePicture", this.companyFrontGateImages[i]);
+    }
+    // for multiple file upload, membership
+    for (let i = 0; i < this.memberShipFile.length; i++) {
+      formData.append("MembershipCertificate", this.memberShipFile[i]);
+    }
+    // overallbodyPost for rest of the form
+    formData.append('CompanyAboutData', JSON.stringify(this.aboutForm));
+    // console.log(this.aboutForm);
+
+    this.api.companyAboutData(formData).subscribe({
+      next: (res: any) => {
+        if (res.success && res.statusCode === 200) {
+          // console.log(res);
+          this.toastr.success(res.message);
+          // Navigate to another page on success
+          // this.router.navigate(['admin']);
+        } else {
+          this.toastr.warning(res.message);
+          // console.log(res.message, 'warning');
+        }
+      },
+      error: (error: any) => {
+        this.toastr.error(error);
+        // console.log(error, "error");
+      }
+    });
   }
 
 }
