@@ -2,9 +2,13 @@
 <div class="container-fluid">
     <div class="row no-gutter">
         <!-- The image half -->
-        <div class="col-lg-6">
+        <div class="col-lg-6" style="position: relative;">
+            <!-- for spinner loading style of ngx-Spinner -->
+            <ngx-spinner bdColor="rgba(255,255,255,0.9)" size="default" color="#408ee0" type="line-spin-fade-rotating" [fullScreen]="false" [zIndex]="89">
+                <p style="font-size: 16px; margin-left: 10px; color: #408ee0">Loading...</p>
+            </ngx-spinner>
+            
             <div class="login d-flex align-items-center">
-
                 <!-- Demo content-->
                 <div class="container">
                     <div class="row">

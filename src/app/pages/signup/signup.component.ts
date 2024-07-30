@@ -8,6 +8,7 @@ import { Observable, debounceTime, distinctUntilChanged, map, startWith } from '
 import { MatDialog } from '@angular/material/dialog';
 import { TermsAndConditionsComponent } from '../../modals/terms-and-conditions/terms-and-conditions.component';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-signup',
@@ -59,7 +60,7 @@ export class SignupComponent implements OnInit {
     'Vatican City', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'
   ];
 
-  constructor(private api: DataService, private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, private toastr: ToastrService,) { }
+  constructor(private api: DataService, private router: Router, private _formBuilder: FormBuilder, public dialog: MatDialog, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     // reactive form group model
@@ -156,6 +157,7 @@ export class SignupComponent implements OnInit {
 
   // Registation Section will update here
   onRegSubmit() {
+    this.spinner.show();
     // for posting registration data model
     const formData = new FormData();
     let postBody = {
@@ -180,15 +182,18 @@ export class SignupComponent implements OnInit {
         if (res.success && res.statusCode === 200) {
           // console.log(res);
           this.SendEmail(res.data);
+          this.spinner.hide();
           this.toastr.success(res.message);
           // Navigate to another page on success
           // this.router.navigate(['admin']);
         } else {
+          this.spinner.hide();
           this.toastr.warning(res.message);
           // console.log(res.message, 'warning');
         }
       },
       error: (error: any) => {
+        this.spinner.hide();
         this.toastr.error(error);
         // console.log(error, "error");
       }

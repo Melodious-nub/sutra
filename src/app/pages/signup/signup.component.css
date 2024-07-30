@@ -23,23 +23,6 @@ mat-form-field {
     color: #000000;
 }
 
-.form-control {
-    background: #FCFCFC;
-    border: 1px solid #02111B;
-}
-
-.form-control:focus {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(63, 81, 181, 0.6) !important;
-    border-color: #3f51b5;
-}
-
-.form-label {
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 21px;
-    color: #02111B;
-}
-
 .form-check-label {
     font-weight: 400;
     font-size: 14px;

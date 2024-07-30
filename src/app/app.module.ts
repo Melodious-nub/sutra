@@ -26,7 +26,8 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import { ToastrModule } from 'ngx-toastr';
 import {MatCardModule} from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -67,14 +68,14 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
     MatCardModule,
     NgbTypeaheadModule,
     MatProgressBarModule,
-    NgxUiLoaderModule,
-    NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
+    NgxSpinnerModule,
   ],
   providers: [
     provideHttpClient(withFetch()),
     provideClientHydration(),
     HttpClient,
     { provide: HTTP_INTERCEPTORS,  useClass: HttpClientInterceptor, multi: true },
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
   ],
   bootstrap: [AppComponent]
 })

@@ -11,6 +11,8 @@ const routes: Routes = [
     { path:'', component: LandingComponent},
     { path:'login', component: LoginComponent},
     { path:'signup', component: SignupComponent},
+    // { path:'employee', component: EmployeeLoginComponent},
+    // { path:'consumer', component: ConsumerLandingComponent},
     // { path:'forgot-password', component: ForgetPasswordComponent},
     { path: 'account-confirmation', component: AccountConfirmationComponent },
     { path: '',   redirectTo: '/', pathMatch: 'full' },

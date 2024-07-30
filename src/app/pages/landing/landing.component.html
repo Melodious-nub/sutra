@@ -1,2 +1,378 @@
 <app-navbar></app-navbar>
-<p>landing works!</p>
+<section class="intro-section" [style.backgroundImage]="'url(' + backgroundImage + ')'">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col text-center">
+                <h2 class="mb-4 font-modi animate__animated animate__fadeInUp">Managing sustainability has never been easier</h2>
+                <p class="p-modi animate__animated animate__fadeInUp animate__delay-1s">To create a globally applied digital tool to empower the users for developing a sustainable future</p>
+                <!-- Uncomment and use the button as needed -->
+                <!-- <button mat-stroked-button routerLink="login" class="animate__animated animate__fadeInUp">Go to login</button> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bussiness-type-section" id="bussiness-type">
+    <div class="container">
+        <div class="cards-flex-container" style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;">
+            <!-- First Card -->
+            <div class="card cards-flex-item card-disabled" style="background: rgba(146, 227, 169, 0.10); border: 1px solid #92E3A9;" type="button" placement="bottom" ngbTooltip="Currently Unavailable. Check back soon for updates!">
+                <img src="../../../assets/images/pana.png" class="card-img-top" style="padding-top: 40px;" alt="employee">
+                <div class="card-body" style="flex-grow: 1; display: flex; align-items: flex-end;">
+                    <h5 class="card-title text-center font-weight-bold">Employee</h5>
+                </div>
+                <div class="go-corner" style="background-color: #00838d;">
+                    <div class="go-arrow">
+                      →
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Card -->
+            <div class="card custom-card cards-flex-item" style="background: rgba(186, 104, 200, 0.10); border: 1px solid #BA68C8;" type="button" routerLink="login">
+                <img src="../../../assets/images/amico.png" class="card-img-top" alt="Commercial">
+                <div class="card-body" style="flex-grow: 1; display: flex; align-items: flex-end;">
+                    <h5 class="card-title text-center font-weight-bold">Commercial</h5>
+                </div>
+                <div class="go-corner" style="background-color: #BA68C8;">
+                    <div class="go-arrow">
+                      →
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Card -->
+            <div class="card cards-flex-item card-disabled" style="background: rgba(64, 123, 255, 0.10); border: 1px solid #407BFF;" type="button" placement="bottom" ngbTooltip="Currently Unavailable. Check back soon for updates!">
+                <img src="../../../assets/images/cuate.png" class="card-img-top" alt="Image Description">
+                <div class="card-body" style="flex-grow: 1; display: flex; align-items: flex-end;">
+                    <h5 class="card-title text-center font-weight-bold">Consumer</h5>
+                </div>
+                <div class="go-corner" style="background-color: #407BFF;">
+                    <div class="go-arrow">
+                      →
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="offer-section" style="background: var(--Primary-color-light, rgba(144, 39, 142, 0.40)); padding: 20px; padding-bottom: 50px;" id="sutra-offer">
+    <div class="container">
+        <h2 class="text-center fs-2 mb-4 pt-5">What Does <span style="color: white; font-weight: 800;">SUTRA</span> offer ?</h2>
+        <div class="row">
+            <!-- First Card: For Employees -->
+            <div class="col-lg-4 col-md-6 mb-3">
+                <div class="card py-4 px-lg-5 h-100">
+                    <div class="card-body d-flex flex-column">
+                        <div class="text-center">
+                            <img src="../../../assets/images/employees.png" class="img-fluid mb-4" alt="Employees">
+                        </div>
+                        <div class="card-title mb-4 text-center">For Employees</div>
+                        <div class="pricing">
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Training program</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">e-learning</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Play, Learn and WIN</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Workers Engagement and Grievance Management</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Employee and worker management solution</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Second Card: For Commercial -->
+            <div class="col-lg-4 col-md-6 mb-3">
+                <div class="card py-4 px-lg-5 h-100">
+                    <div class="card-body d-flex flex-column">
+                        <div class="text-center">
+                            <img src="../../../assets/images/company.png" class="img-fluid mb-4" alt="Commercial">
+                        </div>
+                        <div class="card-title mb-4 text-center">For Commercial</div>
+                        <div class="pricing">
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Detail Database about relevant parties</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">License, certificates, documents management</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Audit and CAP management</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Risk assessment and alert</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Bottom-up Supply Chain Mapping & Visualization of performance</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Social and environmental performance parameters</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Interactive Dashboard with on demand Reporting</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Guiding through the performance levels, not labelling or rating</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Third Card: For Consumers -->
+            <div class="col-lg-4 col-md-6 mb-3">
+                <div class="card py-4 px-lg-5 h-100">
+                    <div class="card-body d-flex flex-column">
+                        <div class="text-center">
+                            <img src="../../../assets/images/shopping.png" class="img-fluid mb-4" alt="Consumers">
+                        </div>
+                        <div class="card-title mb-4 text-center">For Consumers</div>
+                        <div class="pricing">
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Communication for enabling positivity</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Dashboard according to consumer feedback</span></li>
+                                <li class="mb-3"><i class="fa-solid fa-circle-dot"></i><span class="small ms-2">Social and environmental performance at product level</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="feature-of-sutra" id="features_sutra">
+    <div class="container">
+        <h2 class="text-center fs-2 mb-4 pt-4">Features of <span style="color: purple; font-weight: 800;">SUTRA</span></h2>
+        <div class="text-center">
+            <img src="../../../assets/images/features_of_sutra.png" class="img-fluid mb-4" style="width: 800px;" alt="feature-of-sutra">
+        </div>
+    </div>
+</section>
+
+<section class="our-team">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="fs-2">Meet our team</h2>
+            <p class="team-description">Our goal is at the heart of all that we do. We make our clients happiness our sole priority.</p>
+        </div>
+
+        <div class="row team-members">
+            <!-- Team Member 1 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="team-member">
+                    <img src="../../../assets/images/girl_team_2.jpg" alt="Example name">
+                    <h3>Example name</h3>
+                    <p>Example University School of Law Hempstead, New York</p>
+                    <div class="social-media-links">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="team-member">
+                    <img src="http://www.webcoderskull.com/img/team4.png" alt="Example name">
+                    <h3>Example name</h3>
+                    <p>Example University School of Law Hempstead, New York</p>
+                    <div class="social-media-links">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="team-member">
+                    <img src="http://www.webcoderskull.com/img/team2.png" alt="Example name">
+                    <h3>Example name</h3>
+                    <p>Example University School of Law Hempstead, New York</p>
+                    <div class="social-media-links">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="team-member">
+                    <img src="http://www.webcoderskull.com/img/team1.png" alt="Example name">
+                    <h3>Example name</h3>
+                    <p>Example University School of Law Hempstead, New York</p>
+                    <div class="social-media-links">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 5 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="team-member">
+                    <img src="../../../assets/images/girl_team.jpg" alt="Example name">
+                    <h3>Example name</h3>
+                    <p>Example University School of Law Hempstead, New York</p>
+                    <div class="social-media-links">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 6 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="team-member">
+                    <img src="../../../assets/images/girl_team-3.jpg" alt="Example name">
+                    <h3>Example name</h3>
+                    <p>Example University School of Law Hempstead, New York</p>
+                    <div class="social-media-links">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Member 7 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="team-member">
+                    <img src="../../../assets/images/boy_team_4.jpg" alt="Example name">
+                    <h3>Example name</h3>
+                    <p>Example University School of Law Hempstead, New York</p>
+                    <div class="social-media-links">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- footer part -->
+<footer class="footer border-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="widget1">
+                    <div>
+                        <h1 class="brand-text">SUTRA</h1>
+                    </div>
+                    <p style="max-width: 200px; font-size: 14px; font-weight: 400;">Our goal is at the heart of all that we do.</p>
+                    <div class="socialLinks">
+                        <ul>
+                            <li>
+                                <a href="#" style="font-size: 14px;">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" style="font-size: 14px;">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" style="font-size: 14px;">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" style="font-size: 14px;">
+                                    <i class="fab fa-google-plus-g"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="widget3">
+                    <h5>
+                        Page
+                    </h5>
+                    <ul>
+                        <li>
+                            <a href="" style="font-size: 14px;">
+                                Homepage
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" style="font-size: 14px;">
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#bussiness-type" style="font-size: 14px;">
+                                Modules
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sutra-offer" style="font-size: 14px;">
+                                Sutra offers
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#features_sutra" style="font-size: 14px;">
+                                Features
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="widget3">
+                    <h5>
+                        Support
+                    </h5>
+                    <ul>
+                        <li>
+                            <a href="#" style="font-size: 14px;">
+                                Frequently asked questions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" style="font-size: 14px;">
+                                Support Center
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" style="font-size: 14px;">
+                                Security
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="widget4">
+                    <h5>
+                        Contact Us
+                    </h5>
+                    <ul>
+                        <li>
+                            <a href="tel:+8800000000" style="font-size: 14px;">
+                                +8800000000
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:someone@gmail.com" style="font-size: 14px;">
+                                someone&#64;gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" style="font-size: 14px;">
+                                Somewhere, Bangladesh
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyRightArea">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; Copyright All rights reserved {{currentYear}}.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

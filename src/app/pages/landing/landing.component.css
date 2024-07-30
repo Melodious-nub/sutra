@@ -1,0 +1,350 @@
+/* Title styles */
+.font-modi {
+    color: white;
+    font-size: 2rem; /* Default font size for larger screens */
+    font-weight: bold; /* Assuming you want the title to be bold */
+}
+
+/* Description styles */
+.p-modi {
+    color: white;
+    font-size: 1rem; /* Default font size for larger screens */
+}
+
+.intro-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 322px; /* Use min-height instead of height for flexibility */
+    flex-shrink: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+    /* background-image: url(../../../assets/images/backgrounnd.png); */
+    background-color: #6e6e6e;
+    background-position: center center; /* Center the image horizontally and vertically */
+    background-size: cover; /* Cover the entire container, might cause cropping */
+    background-repeat: no-repeat;
+    overflow: hidden; /* Hide overflow to prevent scrolling */
+}
+
+.bussiness-type-section {
+    min-height: 650px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cards-flex-item {
+    display: inline-flex;
+    padding: 17px 23px 27px 23px;
+    flex-direction: column;
+    align-items: center;
+    width: 257px;
+}
+
+.custom-card .card-img-top {
+    width: 100%; /* Make image responsive */
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.custom-card {
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition for hover effects */
+    cursor: pointer;
+}
+
+.custom-card:hover {
+    transform: scale(1.05); /* Slightly increase the size */
+    /* Deepen the background and border colors on hover */
+    /* Example for the first card, repeat for others with appropriate colors */
+    background: rgba(146, 227, 169, 0.3); /* Deepen the background color */
+    border-color: #76b476; /* Deepen the border color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) { /* Adjust for tablets */
+    .font-modi {
+        font-size: 1.5rem; /* Slightly smaller font size for the title */
+    }
+    .p-modi {
+        font-size: 0.9rem; /* Slightly smaller font size for the description */
+    }
+    .custom-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) { /* Adjust for mobile phones */
+    .font-modi {
+        font-size: 1.2rem; /* Smaller font size for the title */
+    }
+    .p-modi {
+        font-size: 0.8rem; /* Smaller font size for the description */
+    }
+}
+
+/* hover design */
+.go-corner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    border-radius: 0 4px 0 32px;
+  }
+  
+  .go-arrow {
+    margin-top: -4px;
+    margin-right: -4px;
+    color: white;
+    font-family: courier, sans;
+  }
+
+  /* for footer */
+  a,
+  a:hover,
+  a:focus,
+  a:active {
+      text-decoration: none;
+      outline: none;
+      color: #000;
+  }
+  
+  a,
+  a:active,
+  a:focus {
+      color: #6f6f6f;
+      text-decoration: none;
+      transition-timing-function: ease-in-out;
+      -ms-transition-timing-function: ease-in-out;
+      -moz-transition-timing-function: ease-in-out;
+      -webkit-transition-timing-function: ease-in-out;
+      -o-transition-timing-function: ease-in-out;
+      transition-duration: .2s;
+      -ms-transition-duration: .2s;
+      -moz-transition-duration: .2s;
+      -webkit-transition-duration: .2s;
+      -o-transition-duration: .2s;
+  }
+  
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer {
+    padding: 30px 0px 0px;
+}
+
+
+.footer .widget1 p {
+    margin-top: 26px;
+}
+
+.footer .socialLinks {
+    margin-top: 28px;
+}
+
+.socialLinks ul li {
+    display: inline-block;
+}
+
+
+.socialLinks ul li a i {
+display: block;
+margin: 0 2px;
+width: 40px;
+height: 40px;
+background: #fafafa;
+border-radius: 50%;
+text-align: center;
+margin-right: 5px;
+line-height: 40px;
+-webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+}
+
+.socialLinks ul li a .fa-facebook-f {
+color: #4267b2;
+}
+
+.socialLinks ul li a .fa-twitter {
+color: #1da1f2;
+}
+
+.socialLinks ul li a .fa-google-plus-g {
+color: #dd5044;
+}
+
+.socialLinks ul li a .fa-linkedin-in {
+color: #0177b5;
+}
+
+
+.socialLinks ul li a:hover i {
+    color: #fff;
+}
+
+.socialLinks ul li a:hover .fa-facebook-f {
+background: #4267b2;
+}
+
+.socialLinks ul li a:hover .fa-twitter {
+background: #1da1f2;
+}
+
+.socialLinks ul li a:hover .fa-google-plus-g {
+background: #dd5044;
+}
+
+.socialLinks ul li a:hover .fa-linkedin-in {
+background: #0177b5;
+}
+
+.footer h5 {
+    margin-bottom: 28px;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 21px
+}
+
+.footer .widget3 ul li a,
+.footer .widget4 ul li a {
+font-size: 16px;
+margin-bottom: 13px;
+display: block;
+}
+
+.footer .widget3 h5 {
+margin-bottom: 22px;
+font-weight: 500;
+/* color: #fff; */
+font-size: 21px;
+line-height: 32px;
+}
+
+.footer .widget4 h5 {
+margin-bottom: 22px;
+font-weight: 500;
+/* color: #fff; */
+font-size: 21px;
+}
+
+.copyRightArea {
+    margin-top: 30px;
+    padding: 20px 0px 10px 0px;
+    background: #F4E9F4;
+}
+
+.copyRightArea p {
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.brand-text {
+    font-size: 24px;
+    font-weight: 600;
+    background: var(--Sumations-gradient, radial-gradient(50% 50% at 50% 50%, #D080B4 0%, #90278E 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.feature-of-sutra {
+    min-height: 400px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.our-team {
+    padding: 50px 0;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(208, 128, 180, 0.10) 0%, rgba(144, 39, 142, 0.10) 100%);
+    text-align: center;
+}
+
+.team-description {
+    color: #787D82;
+    font-size: 14px;
+}
+
+.team-members .team-member {
+    background: #fff;
+    border: 2px solid #d5d5d5;
+    padding: 30px 20px;
+    margin-bottom: 28px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.team-members .team-member:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.team-members img {
+    width: 148px;
+    height: 148px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.team-members h3 {
+    color: #2a2a2a;
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 6px 0;
+}
+
+.team-members p {
+    color: #2a2a2a;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.social-media-links {
+    margin-top: 20px;
+}
+
+.social-media-links li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.social-media-links .fa {
+    font-size: 24px;
+    color: #767676;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-media-links .fa:hover {
+    color: #025a8e;
+}
+
+/* disabled card */
+.card-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.card-disabled:hover {
+    box-shadow: none; /* Remove hover effect for disabled cards */
+}
